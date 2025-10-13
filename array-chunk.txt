@@ -1,0 +1,23 @@
+=== Benchmark for 20000 elements (chunk size 100) ===
+array_slice loop     :    0.281 ms |  2.00 MB memory
+array_chunk          :    0.199 ms |   0.00 B memory
+manual iteration     :    0.397 ms |   0.00 B memory
+generator chunks     :    0.057 ms |   0.00 B memory
+generator chunks     :    0.006 ms |   0.00 B memory
+generator chunks     :    0.132 ms |   0.00 B memory
+
+=== Benchmark for 200000 elements (chunk size 100) ===
+array_slice loop     :    2.115 ms | 12.00 MB memory
+array_chunk          :    2.465 ms | 10.00 MB memory
+manual iteration     :    4.139 ms |   0.00 B memory
+generator chunks     :    0.483 ms |   0.00 B memory
+generator chunks     :    0.006 ms |   0.00 B memory
+generator chunks     :    1.472 ms |   0.00 B memory
+
+=== Benchmark for 1000000 elements (chunk size 100) ===
+array_slice loop     :   12.448 ms | 76.00 MB memory
+array_chunk          :   13.463 ms | 74.00 MB memory
+manual iteration     :   19.257 ms |   0.00 B memory
+generator chunks     :    2.759 ms |   0.00 B memory
+generator chunks     :    0.008 ms |   0.00 B memory
+generator chunks     :    6.574 ms |   0.00 B memory
