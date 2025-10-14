@@ -13,15 +13,14 @@ function formatBytes(int $bytes): string {
 function benchmark(callable $fn, string $label): array {
 	gc_collect_cycles();
 	gc_mem_caches();
-	$startMem = memory_get_usage(true);
+	memory_reset_peak_usage();
 	$start = hrtime(true);
 	$fn();
 	$end = hrtime(true);
-	$endMem = memory_get_usage(true);
 	return [
 		'label' => $label,
 		'time_ms' => ($end - $start) / 1e6,
-		'mem_used' => max(0, $endMem - $startMem)
+		'mem_used' => memory_get_peak_usage(),
 	];
 }
 
@@ -107,7 +106,7 @@ function runBenchmarks(int $n, int $chunkSize = 100): void {
 	// print results
 	foreach ($results as $r) {
 		echo sprintf(
-			"%-20s : %8.3f ms | %8s memory\n",
+			"%-20s : %8.3f ms | %9s memory\n",
 			$r['label'],
 			$r['time_ms'],
 			formatBytes($r['mem_used'])

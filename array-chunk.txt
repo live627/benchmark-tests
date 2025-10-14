@@ -1,23 +1,23 @@
 === Benchmark for 20000 elements (chunk size 100) ===
-array_slice loop     :    0.281 ms |  2.00 MB memory
-array_chunk          :    0.199 ms |   0.00 B memory
-manual iteration     :    0.397 ms |   0.00 B memory
-generator chunks     :    0.057 ms |   0.00 B memory
-generator chunks     :    0.006 ms |   0.00 B memory
-generator chunks     :    0.132 ms |   0.00 B memory
+array_slice loop     :    0.108 ms |   1.41 MB memory
+array_chunk          :    0.106 ms |   1.41 MB memory
+manual iteration     :    0.433 ms | 929.73 KB memory
+generator chunks     :    0.055 ms | 935.49 KB memory
+generator chunks     :    0.007 ms | 930.81 KB memory
+generator chunks     :    0.088 ms |   1.41 MB memory
 
 === Benchmark for 200000 elements (chunk size 100) ===
-array_slice loop     :    2.115 ms | 12.00 MB memory
-array_chunk          :    2.465 ms | 10.00 MB memory
-manual iteration     :    4.139 ms |   0.00 B memory
-generator chunks     :    0.483 ms |   0.00 B memory
-generator chunks     :    0.006 ms |   0.00 B memory
-generator chunks     :    1.472 ms |   0.00 B memory
+array_slice loop     :    0.898 ms |  11.43 MB memory
+array_chunk          :    1.320 ms |  11.43 MB memory
+manual iteration     :    4.517 ms |   6.40 MB memory
+generator chunks     :    0.442 ms |   6.41 MB memory
+generator chunks     :    0.006 ms |   6.41 MB memory
+generator chunks     :    0.783 ms |  12.41 MB memory
 
 === Benchmark for 1000000 elements (chunk size 100) ===
-array_slice loop     :   12.448 ms | 76.00 MB memory
-array_chunk          :   13.463 ms | 74.00 MB memory
-manual iteration     :   19.257 ms |   0.00 B memory
-generator chunks     :    2.759 ms |   0.00 B memory
-generator chunks     :    0.008 ms |   0.00 B memory
-generator chunks     :    6.574 ms |   0.00 B memory
+array_slice loop     :    7.566 ms |  43.61 MB memory
+array_chunk          :    8.222 ms |  43.61 MB memory
+manual iteration     :   21.147 ms |  18.40 MB memory
+generator chunks     :    2.357 ms |  18.41 MB memory
+generator chunks     :    0.008 ms |  18.41 MB memory
+generator chunks     :    3.482 ms |  36.41 MB memory
