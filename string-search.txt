@@ -1,0 +1,116 @@
+=== Searching 10000 chars, needle near beginning ===
+strpos                    :    0.004 ms | 451.55 KB | found: yes
+stripos                   :    0.002 ms | 452.12 KB | found: yes
+strrpos                   :    0.008 ms | 452.49 KB | found: yes
+str_contains              :    0.000 ms | 452.86 KB | found: yes
+preg_match /XYZ/          :    0.085 ms | 453.23 KB | found: yes
+preg_match /xyz/i         :    0.011 ms | 453.59 KB | found: yes
+preg_match preg_quote     :    0.004 ms | 453.96 KB | found: yes
+substr_compare loop       :    0.007 ms | 454.33 KB | found: yes
+manual loop               :    0.007 ms | 454.70 KB | found: yes
+chunk generator           :    0.011 ms | 456.76 KB | found: yes
+slice generator           :    0.019 ms | 456.06 KB | found: yes
+
+=== Searching 10000 chars, needle near middle ===
+strpos                    :    0.001 ms | 451.55 KB | found: yes
+stripos                   :    0.001 ms | 452.12 KB | found: yes
+strrpos                   :    0.004 ms | 452.49 KB | found: yes
+str_contains              :    0.000 ms | 452.86 KB | found: yes
+preg_match /XYZ/          :    0.001 ms | 453.23 KB | found: yes
+preg_match /xyz/i         :    0.000 ms | 453.59 KB | found: yes
+preg_match preg_quote     :    0.001 ms | 453.96 KB | found: yes
+substr_compare loop       :    0.201 ms | 454.33 KB | found: yes
+manual loop               :    0.261 ms | 454.70 KB | found: yes
+chunk generator           :    0.003 ms | 458.01 KB | found: yes
+slice generator           :    0.745 ms | 456.06 KB | found: yes
+
+=== Searching 10000 chars, needle near end ===
+strpos                    :    0.001 ms | 451.55 KB | found: yes
+stripos                   :    0.001 ms | 452.12 KB | found: yes
+strrpos                   :    0.001 ms | 452.49 KB | found: yes
+str_contains              :    0.001 ms | 452.86 KB | found: yes
+preg_match /XYZ/          :    0.001 ms | 453.23 KB | found: yes
+preg_match /xyz/i         :    0.001 ms | 453.59 KB | found: yes
+preg_match preg_quote     :    0.001 ms | 453.96 KB | found: yes
+substr_compare loop       :    0.404 ms | 454.33 KB | found: yes
+manual loop               :    0.530 ms | 454.70 KB | found: yes
+chunk generator           :    0.005 ms | 458.01 KB | found: yes
+slice generator           :    1.504 ms | 456.06 KB | found: yes
+
+=== Searching 100000 chars, needle near beginning ===
+strpos                    :    0.001 ms | 627.55 KB | found: yes
+stripos                   :    0.003 ms | 628.12 KB | found: yes
+strrpos                   :    0.067 ms | 628.49 KB | found: yes
+str_contains              :    0.000 ms | 628.86 KB | found: yes
+preg_match /XYZ/          :    0.001 ms | 629.23 KB | found: yes
+preg_match /xyz/i         :    0.000 ms | 629.59 KB | found: yes
+preg_match preg_quote     :    0.001 ms | 629.96 KB | found: yes
+substr_compare loop       :    0.004 ms | 630.33 KB | found: yes
+manual loop               :    0.005 ms | 630.70 KB | found: yes
+chunk generator           :    0.002 ms | 632.76 KB | found: yes
+slice generator           :    0.015 ms | 632.06 KB | found: yes
+
+=== Searching 100000 chars, needle near middle ===
+strpos                    :    0.002 ms | 627.55 KB | found: yes
+stripos                   :    0.004 ms | 628.12 KB | found: yes
+strrpos                   :    0.032 ms | 628.49 KB | found: yes
+str_contains              :    0.001 ms | 628.86 KB | found: yes
+preg_match /XYZ/          :    0.002 ms | 629.23 KB | found: yes
+preg_match /xyz/i         :    0.002 ms | 629.59 KB | found: yes
+preg_match preg_quote     :    0.002 ms | 629.96 KB | found: yes
+substr_compare loop       :    2.026 ms | 630.33 KB | found: yes
+manual loop               :    2.695 ms | 630.70 KB | found: yes
+chunk generator           :    0.010 ms | 634.01 KB | found: yes
+slice generator           :    7.320 ms | 632.06 KB | found: yes
+
+=== Searching 100000 chars, needle near end ===
+strpos                    :    0.003 ms | 627.55 KB | found: yes
+stripos                   :    0.005 ms | 628.12 KB | found: yes
+strrpos                   :    0.000 ms | 628.49 KB | found: yes
+str_contains              :    0.002 ms | 628.86 KB | found: yes
+preg_match /XYZ/          :    0.003 ms | 629.23 KB | found: yes
+preg_match /xyz/i         :    0.003 ms | 629.59 KB | found: yes
+preg_match preg_quote     :    0.003 ms | 629.96 KB | found: yes
+substr_compare loop       :    3.766 ms | 630.33 KB | found: yes
+manual loop               :    5.143 ms | 630.70 KB | found: yes
+chunk generator           :    0.018 ms | 634.01 KB | found: yes
+slice generator           :   14.339 ms | 632.06 KB | found: yes
+
+=== Searching 1000000 chars, needle near beginning ===
+strpos                    :    0.001 ms |  2.33 MB | found: yes
+stripos                   :    0.026 ms |  2.33 MB | found: yes
+strrpos                   :    0.639 ms |  2.33 MB | found: yes
+str_contains              :    0.000 ms |  2.33 MB | found: yes
+preg_match /XYZ/          :    0.001 ms |  2.33 MB | found: yes
+preg_match /xyz/i         :    0.000 ms |  2.33 MB | found: yes
+preg_match preg_quote     :    0.001 ms |  2.33 MB | found: yes
+substr_compare loop       :    0.004 ms |  2.33 MB | found: yes
+manual loop               :    0.006 ms |  2.33 MB | found: yes
+chunk generator           :    0.002 ms |  2.34 MB | found: yes
+slice generator           :    0.015 ms |  2.34 MB | found: yes
+
+=== Searching 1000000 chars, needle near middle ===
+strpos                    :    0.017 ms |  2.33 MB | found: yes
+stripos                   :    0.038 ms |  2.33 MB | found: yes
+strrpos                   :    0.313 ms |  2.33 MB | found: yes
+str_contains              :    0.011 ms |  2.33 MB | found: yes
+preg_match /XYZ/          :    0.011 ms |  2.33 MB | found: yes
+preg_match /xyz/i         :    0.014 ms |  2.33 MB | found: yes
+preg_match preg_quote     :    0.011 ms |  2.33 MB | found: yes
+substr_compare loop       :   18.665 ms |  2.33 MB | found: yes
+manual loop               :   25.396 ms |  2.33 MB | found: yes
+chunk generator           :    0.077 ms |  2.34 MB | found: yes
+slice generator           :   74.974 ms |  2.34 MB | found: yes
+
+=== Searching 1000000 chars, needle near end ===
+strpos                    :    0.025 ms |  2.33 MB | found: yes
+stripos                   :    0.046 ms |  2.33 MB | found: yes
+strrpos                   :    0.001 ms |  2.33 MB | found: yes
+str_contains              :    0.023 ms |  2.33 MB | found: yes
+preg_match /XYZ/          :    0.024 ms |  2.33 MB | found: yes
+preg_match /xyz/i         :    0.029 ms |  2.33 MB | found: yes
+preg_match preg_quote     :    0.025 ms |  2.33 MB | found: yes
+substr_compare loop       :   37.121 ms |  2.33 MB | found: yes
+manual loop               :   50.693 ms |  2.33 MB | found: yes
+chunk generator           :    0.158 ms |  2.34 MB | found: yes
+slice generator           :  141.183 ms |  2.34 MB | found: yes

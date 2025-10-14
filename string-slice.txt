@@ -1,0 +1,23 @@
+=== Benchmark for 20000 chars (chunk size 100) ===
+substr loop          :    0.025 ms | 465.77 KB memory
+str_split            :    0.015 ms | 466.35 KB memory
+manual iteration     :    0.454 ms | 434.03 KB memory
+generator chunks     :    0.025 ms | 434.94 KB memory
+generator slices     :    0.006 ms | 435.18 KB memory
+iterator limit       :    0.496 ms |   1.54 MB memory
+
+=== Benchmark for 200000 chars (chunk size 100) ===
+substr loop          :    0.150 ms | 894.77 KB memory
+str_split            :    0.072 ms | 895.35 KB memory
+manual iteration     :    4.534 ms | 610.03 KB memory
+generator chunks     :    0.166 ms | 610.94 KB memory
+generator slices     :    0.006 ms | 611.18 KB memory
+iterator limit       :    4.878 ms |  12.70 MB memory
+
+=== Benchmark for 1000000 chars (chunk size 100) ===
+substr loop          :    0.664 ms |   2.83 MB memory
+str_split            :    0.376 ms |   2.84 MB memory
+manual iteration     :   22.783 ms |   1.36 MB memory
+generator chunks     :    0.816 ms |   1.36 MB memory
+generator slices     :    0.011 ms |   1.36 MB memory
+iterator limit       :   23.990 ms |  49.88 MB memory
