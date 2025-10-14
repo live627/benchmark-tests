@@ -1,37 +1,40 @@
 === Benchmark for 20000 queries ===
                           : total (ms) | avg/query (µs) |     memory
 --------------------------------------------------------------------
-SMF 2 cleaner             :     21.699 |        1.085 |     0.00 MB
-SMF 3 cleaner             :     19.681 |        0.984 |     0.00 MB
-New cleaner               :      6.721 |        0.336 |     0.00 MB
+SMF 2 cleaner             :     21.411 |        1.071 |     0.00 MB
+SMF 3 cleaner             :     18.936 |        0.947 |     0.00 MB
+New cleaner               :      7.257 |        0.363 |     0.00 MB
 
 === Benchmark for 200000 queries ===
                           : total (ms) | avg/query (µs) |     memory
 --------------------------------------------------------------------
-SMF 2 cleaner             :    195.394 |        0.977 |     0.00 MB
-SMF 3 cleaner             :    189.670 |        0.948 |     0.00 MB
-New cleaner               :     66.006 |        0.330 |     0.00 MB
+SMF 2 cleaner             :    193.541 |        0.968 |     0.00 MB
+SMF 3 cleaner             :    189.908 |        0.950 |     0.00 MB
+New cleaner               :     71.892 |        0.359 |     0.00 MB
 
 === Benchmark for 1000000 queries ===
                           : total (ms) | avg/query (µs) |     memory
 --------------------------------------------------------------------
-SMF 2 cleaner             :    976.855 |        0.977 |     0.00 MB
-SMF 3 cleaner             :    935.899 |        0.936 |     0.00 MB
-New cleaner               :    328.524 |        0.329 |     0.00 MB
+SMF 2 cleaner             :    964.655 |        0.965 |     0.00 MB
+SMF 3 cleaner             :    937.421 |        0.937 |     0.00 MB
+New cleaner               :    354.084 |        0.354 |     0.00 MB
 
 === Detection differences ===
 
  === Generating very large INSERT with 50000 rows ===
-Generated SQL length: 4,016,651 bytes in 0.024s
+Generated SQL length: 4,016,651 bytes in 0.029s
 
 === Running SMF 2 cleaner on the huge INSERT ===
 Cleaner result: ALLOWED
-Cleaner runtime: 4.639 seconds
+Cleaner runtime: 4.473 seconds
+Peak memory: 16.00 MB
 
 === Running SMF 3 cleaner on the huge INSERT ===
 Cleaner result: ALLOWED
-Cleaner runtime: 0.022 seconds
+Cleaner runtime: 0.021 seconds
+Peak memory: 32.00 MB
 
 === Running New cleaner on the huge INSERT ===
 Cleaner result: ALLOWED
 Cleaner runtime: 0.005 seconds
+Peak memory: 22.00 MB

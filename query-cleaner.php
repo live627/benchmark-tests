@@ -265,10 +265,13 @@ echo "Generated SQL length: " . number_format(strlen($sql)) . " bytes in " . rou
 
 foreach ($tests as [$label, $fn]) {
 	echo "\n=== Running $label on the huge INSERT ===\n";
+
+	memory_reset_peak_usage();
 	$startClean = microtime(true);
 	$blocked = !$fn($sql);
 	$cleanTime = microtime(true) - $startClean;
 
 	echo "Cleaner result: " . ($blocked ? "BLOCKED" : "ALLOWED") . "\n";
 	echo "Cleaner runtime: " . round($cleanTime, 3) . " seconds\n";
+	printf("Peak memory: %.2f MB\n", memory_get_peak_usage(true) / 1048576);
 }
