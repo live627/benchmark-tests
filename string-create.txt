@@ -1,0 +1,47 @@
+=== String Generation Benchmark for 20000 pieces ('A') ===
+------------------------------------------------------------
+Method                    | Time (ms)      | Memory
+------------------------------------------------------------
+concatenation (.=)        |       0.577 ms |        20.00 KB
+implode(array)            |       0.369 ms |       852.05 KB
+str_repeat()              |       0.003 ms |        20.00 KB
+sprintf() in loop         |       0.602 ms |        20.00 KB
+generator loop            |       1.119 ms |        20.59 KB
+generator+implode         |       0.708 ms |       852.05 KB
+interpolation loop        |       1.677 ms |        40.00 KB
+pack("C$n")               |       0.130 ms |         1.00 MB
+pack("C*")                |       0.119 ms |         1.00 MB
+pack("A")                 |       0.001 ms |        20.06 KB
+------------------------------------------------------------
+
+=== String Generation Benchmark for 200000 pieces ('A') ===
+------------------------------------------------------------
+Method                    | Time (ms)      | Memory
+------------------------------------------------------------
+concatenation (.=)        |       5.263 ms |       196.00 KB
+implode(array)            |       4.910 ms |        10.19 MB
+str_repeat()              |       0.005 ms |       196.00 KB
+sprintf() in loop         |       5.442 ms |       196.00 KB
+generator loop            |      10.334 ms |       196.59 KB
+generator+implode         |       9.256 ms |        10.19 MB
+interpolation loop        |     308.338 ms |       392.00 KB
+pack("C$n")               |       1.961 ms |        10.00 MB
+pack("C*")                |       1.842 ms |        10.00 MB
+pack("A")                 |       0.006 ms |       196.06 KB
+------------------------------------------------------------
+
+=== String Generation Benchmark for 1000000 pieces ('A') ===
+------------------------------------------------------------
+Method                    | Time (ms)      | Memory
+------------------------------------------------------------
+concatenation (.=)        |      25.578 ms |       980.00 KB
+implode(array)            |      20.643 ms |        34.96 MB
+str_repeat()              |       0.021 ms |       980.00 KB
+sprintf() in loop         |      26.563 ms |       980.00 KB
+generator loop            |      51.019 ms |       980.59 KB
+generator+implode         |      39.105 ms |        34.96 MB
+interpolation loop        |   13082.460 ms |         1.91 MB
+pack("C$n")               |       9.548 ms |        34.00 MB
+pack("C*")                |       9.493 ms |        34.00 MB
+pack("A")                 |       0.044 ms |       980.06 KB
+------------------------------------------------------------

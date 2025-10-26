@@ -1,0 +1,35 @@
+=== Array Generation Benchmark for 20000 elements ===
+------------------------------------------------------------
+Method                    | Time (ms)      | Memory
+------------------------------------------------------------
+range()                   |       0.056 ms |       516.05 KB
+array_fill()              |       0.026 ms |       516.05 KB
+for loop $a[]=            |       0.215 ms |       516.05 KB
+array_push() loop         |       0.721 ms |       516.09 KB
+generator                 |       0.641 ms |       516.65 KB
+SplFixedArray             |       0.377 ms |       316.09 KB
+------------------------------------------------------------
+
+=== Array Generation Benchmark for 200000 elements ===
+------------------------------------------------------------
+Method                    | Time (ms)      | Memory
+------------------------------------------------------------
+range()                   |       0.662 ms |         6.00 MB
+array_fill()              |       0.674 ms |         6.00 MB
+for loop $a[]=            |       3.099 ms |         6.00 MB
+array_push() loop         |       7.831 ms |         6.00 MB
+generator                 |       6.866 ms |         6.00 MB
+SplFixedArray             |       3.943 ms |         4.00 MB
+------------------------------------------------------------
+
+=== Array Generation Benchmark for 1000000 elements ===
+------------------------------------------------------------
+Method                    | Time (ms)      | Memory
+------------------------------------------------------------
+range()                   |       3.020 ms |        18.00 MB
+array_fill()              |       3.219 ms |        18.00 MB
+for loop $a[]=            |      14.405 ms |        18.00 MB
+array_push() loop         |      37.169 ms |        18.00 MB
+generator                 |      33.964 ms |        18.00 MB
+SplFixedArray             |      19.348 ms |        16.00 MB
+------------------------------------------------------------

@@ -1,0 +1,35 @@
+=== String Iteration Benchmark for string length = 20000 ===
+------------------------------------------------------------
+Method                    | Time (ms)      | Memory
+------------------------------------------------------------
+for ($i) with strlen      |       0.284 ms |          0.00 B
+for ($i) cached strlen    |       0.297 ms |          0.00 B
+foreach str_split()       |       0.902 ms |         1.11 MB
+foreach generator         |       0.893 ms |        672.00 B
+foreach unpack("C*")      |       0.837 ms |       516.09 KB
+SplFixedArray iteration   |       0.742 ms |       316.19 KB
+------------------------------------------------------------
+
+=== String Iteration Benchmark for string length = 200000 ===
+------------------------------------------------------------
+Method                    | Time (ms)      | Memory
+------------------------------------------------------------
+for ($i) with strlen      |       3.060 ms |          0.00 B
+for ($i) cached strlen    |       2.671 ms |          0.00 B
+foreach str_split()       |       7.482 ms |        12.10 MB
+foreach generator         |       8.533 ms |        672.00 B
+foreach unpack("C*")      |       8.856 ms |         6.00 MB
+SplFixedArray iteration   |       7.279 ms |         4.00 MB
+------------------------------------------------------------
+
+=== String Iteration Benchmark for string length = 1000000 ===
+------------------------------------------------------------
+Method                    | Time (ms)      | Memory
+------------------------------------------------------------
+for ($i) with strlen      |      13.518 ms |          0.00 B
+for ($i) cached strlen    |      11.601 ms |          0.00 B
+foreach str_split()       |      33.512 ms |        48.52 MB
+foreach generator         |      40.979 ms |        672.00 B
+foreach unpack("C*")      |      45.127 ms |        18.00 MB
+SplFixedArray iteration   |      36.709 ms |        16.00 MB
+------------------------------------------------------------
