@@ -295,6 +295,17 @@ foreach ($sampleForTruth as $ip) {
 // Validators to test
 // ---------------------------
 $validators = [
+    'filter_var_cache' => function ($ip) {
+        static $ip_cache;
+
+        if (isset($ip_cache[$ip])) {
+            return $ip_cache[$ip];
+        }
+
+        $ip_cache[$ip] = filter_var($ip, FILTER_VALIDATE_IP) !== false;
+
+        return $ip_cache[$ip];
+    },
     'filter_var_both' => function ($ip) {
         return filter_var($ip, FILTER_VALIDATE_IP) !== false;
     },
@@ -303,6 +314,13 @@ $validators = [
     },
     'filter_var_ipv6' => function ($ip) {
         return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false;
+    },
+    'filter_var_both_strpos' => function ($ip) {
+        if (str_contains($ip, ':') === false) {
+            return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false;
+        } else {
+            return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false;
+        }
     },
     'ip2long' => fn($ip) => ip2long($ip) !== false,
     'ip2long + pack' => fn($ip) => validateIp2longPack($ip) !== false,
@@ -353,10 +371,10 @@ foreach ($results as $name => $r) {
 echo str_repeat('=', 72) . PHP_EOL;
 
 echo "Understanding the TP / TN / FP / FN columns:\n";
-echo "  TP = True Positive   → correctly accepted a valid IP.\n";
-echo "  TN = True Negative   → correctly rejected an invalid IP.\n";
-echo "  FP = False Positive  → incorrectly accepted an invalid IP (too lenient).\n";
-echo "  FN = False Negative  → incorrectly rejected a valid IP (too strict).\n\n";
+echo "  TP = True Positive → correctly accepted a valid IP.\n";
+echo "  TN = True Negative → correctly rejected an invalid IP.\n";
+echo "  FP = False Positive → incorrectly accepted an invalid IP (too lenient).\n";
+echo "  FN = False Negative → incorrectly rejected a valid IP (too strict).\n\n";
 
 echo "A perfect validator has FP = 0 and FN = 0, with high TP and TN counts.\n";
 echo "Use these metrics to see whether a method is overly permissive or overly restrictive.\n\n";
