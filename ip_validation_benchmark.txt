@@ -1,0 +1,23 @@
+Running benchmark: 2020 test IPs x 25 rounds (~50500 checks per validator)
+========================================================================
+Validator             Time (ms)   Checks/s      TP    TN    FP    FN
+------------------------------------------------------------------------
+filter_var_both       10.38       4,863,212     8125  4375  0     0
+filter_var_ipv4       7.01        7,205,972     3975  4375  0     4150
+filter_var_ipv6       11.87       4,253,004     4150  4375  0     3975
+ip2long               6.39        7,896,963     3975  4375  0     4150
+ip2long + pack        10.23       4,936,545     3975  4375  0     4150
+inet_pton             14.13       3,573,987     8125  4375  0     0
+regex_ipv4            8.82        5,723,575     3975  4375  0     4150
+regex_ipv6            11.81       4,274,633     4125  4375  0     4000
+custom_ipv4           14.59       3,461,721     3975  4375  0     4150
+custom_ipv6           14.29       3,533,916     4150  4375  0     3975
+========================================================================
+Understanding the TP / TN / FP / FN columns:
+  TP = True Positive   → correctly accepted a valid IP.
+  TN = True Negative   → correctly rejected an invalid IP.
+  FP = False Positive  → incorrectly accepted an invalid IP (too lenient).
+  FN = False Negative  → incorrectly rejected a valid IP (too strict).
+
+A perfect validator has FP = 0 and FN = 0, with high TP and TN counts.
+Use these metrics to see whether a method is overly permissive or overly restrictive.
