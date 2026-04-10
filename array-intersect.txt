@@ -1,0 +1,71 @@
+=== Array Intersection Benchmark for 20 elements ===
+------------------------------------------------------------
+Method                    | Time (ms)      | Memory
+------------------------------------------------------------
+hash_set_intersect3()     |       0.001 ms |         2.55 KB
+hash_set_intersect2()     |       0.001 ms |         2.55 KB
+hash_set_intersect4()     |       0.002 ms |         3.23 KB
+flipped_intersect()       |       0.002 ms |         3.97 KB
+filter_flip_intersect()   |       0.002 ms |         3.35 KB
+hash_set_intersect()      |       0.002 ms |         3.35 KB
+reduce_intersect()        |       0.005 ms |         3.30 KB
+diff_based_intersect()    |       0.006 ms |         4.46 KB
+manual_intersect()        |       0.009 ms |         1.98 KB
+two_pointer_intersect()   |       0.014 ms |         4.55 KB
+array_intersect()         |       0.029 ms |         3.02 KB
+------------------------------------------------------------
+✅ All implementations match
+
+=== Array Intersection Benchmark for 20,000 elements ===
+------------------------------------------------------------
+Method                    | Time (ms)      | Memory
+------------------------------------------------------------
+hash_set_intersect3()     |       0.611 ms |         1.26 MB
+hash_set_intersect2()     |       0.652 ms |         1.26 MB
+filter_flip_intersect()   |       0.985 ms |         1.28 MB
+hash_set_intersect()      |       1.016 ms |         1.28 MB
+hash_set_intersect4()     |       0.857 ms |         1.75 MB
+flipped_intersect()       |       0.659 ms |         2.55 MB
+reduce_intersect()        |       1.280 ms |         1.27 MB
+manual_intersect()        |       1.170 ms |         1.75 MB
+diff_based_intersect()    |       3.445 ms |         2.85 MB
+two_pointer_intersect()   |       7.588 ms |         5.51 MB
+array_intersect()         |      42.702 ms |         1.88 MB
+------------------------------------------------------------
+✅ All implementations match
+
+=== Array Intersection Benchmark for 200,000 elements ===
+------------------------------------------------------------
+Method                    | Time (ms)      | Memory
+------------------------------------------------------------
+hash_set_intersect3()     |       5.798 ms |        10.00 MB
+hash_set_intersect2()     |       6.441 ms |        10.00 MB
+filter_flip_intersect()   |       8.956 ms |        10.00 MB
+hash_set_intersect4()     |       8.681 ms |        12.00 MB
+hash_set_intersect()      |       9.756 ms |        10.00 MB
+flipped_intersect()       |       6.261 ms |        20.00 MB
+manual_intersect()        |       8.429 ms |        16.00 MB
+diff_based_intersect()    |      34.718 ms |        27.05 MB
+two_pointer_intersect()   |      48.848 ms |        16.00 MB
+reduce_intersect()        |     135.205 ms |        10.00 MB
+array_intersect()         |     293.271 ms |        16.00 MB
+------------------------------------------------------------
+✅ All implementations match
+
+=== Array Intersection Benchmark for 1,000,000 elements ===
+------------------------------------------------------------
+Method                    | Time (ms)      | Memory
+------------------------------------------------------------
+hash_set_intersect3()     |      20.744 ms |        10.00 MB
+hash_set_intersect2()     |      25.807 ms |        10.00 MB
+filter_flip_intersect()   |      33.664 ms |        11.25 MB
+hash_set_intersect()      |      37.666 ms |        11.25 MB
+hash_set_intersect4()     |      32.704 ms |        24.00 MB
+flipped_intersect()       |      27.738 ms |        58.00 MB
+manual_intersect()        |      35.533 ms |        58.00 MB
+two_pointer_intersect()   |     146.429 ms |        58.00 MB
+diff_based_intersect()    |     141.806 ms |        93.37 MB
+array_intersect()         |     889.204 ms |        42.00 MB
+reduce_intersect()        |    2071.785 ms |        10.00 MB
+------------------------------------------------------------
+✅ All implementations match
