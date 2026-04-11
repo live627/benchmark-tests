@@ -37,50 +37,61 @@ function benchmark(callable $fn, string $label): array {
 	];
 }
 
-function manual_intersect($arrayOne, $arrayTwo) {
-	$index = array_flip($arrayOne);
-	foreach ($arrayTwo as $value) {
+function manual_intersect($a, $b) {
+	$index = array_flip($a);
+	foreach ($b as $value) {
 		if (isset($index[$value])) {
 			unset($index[$value]);
 		}
 	}
 	foreach ($index as $value => $key) {
-		unset($arrayOne[$key]);
+		unset($a[$key]);
 	}
-	return $arrayOne;
+	return $a;
 }
 
-function flipped_intersect($arrayOne, $arrayTwo) {
-	$index = array_flip($arrayOne);
-	$second = array_flip($arrayTwo);
+function manual_intersect2($a, $b) {
+	$index = array_flip($a);
+	$res = [];
+	foreach ($b as $value) {
+		if (isset($index[$value])){
+			$res[$value] = 1;
+		}
+	}
+	return array_keys($res);
+}
+
+function flipped_intersect($a, $b) {
+	$index = array_flip($a);
+	$second = array_flip($b);
 	$x = array_intersect_key($index, $second);
 	return array_flip($x);
 }
 
-function reduce_intersect($arrayOne, $arrayTwo) {
-	$second = array_flip($arrayTwo);
-	return array_reduce($arrayOne, fn($c, $v) => isset($second[$v]) ? [...$c, $v] : $c, []);
+function reduce_intersect($a, $b) {
+	$second = array_flip($b);
+	return array_reduce($a, fn($c, $v) => isset($second[$v]) ? [...$c, $v] : $c, []);
 }
 
-function filter_flip_intersect($arrayOne, $arrayTwo) {
-	$flipped = array_flip($arrayTwo);
-	return array_filter($arrayOne, fn($v) => isset($flipped[$v]));
+function filter_flip_intersect($a, $b) {
+	$flipped = array_flip($b);
+	return array_filter($a, fn($v) => isset($flipped[$v]));
 }
 
-function diff_based_intersect($arrayOne, $arrayTwo) {
-	return array_diff($arrayOne, array_diff($arrayOne, $arrayTwo));
+function diff_based_intersect($a, $b) {
+	return array_diff($a, array_diff($a, $b));
 }
 
-function two_pointer_intersect($arrayOne, $arrayTwo) {
-	sort($arrayOne);
-	sort($arrayTwo);
+function two_pointer_intersect($a, $b) {
+	sort($a);
+	sort($b);
 	$result = [];
 	$i = $j = 0;
-	while ($i < count($arrayOne) && $j < count($arrayTwo)) {
-		if ($arrayOne[$i] === $arrayTwo[$j]) {
-			$result[] = $arrayOne[$i];
+	while ($i < count($a) && $j < count($b)) {
+		if ($a[$i] === $b[$j]) {
+			$result[] = $a[$i];
 			$i++; $j++;
-		} elseif ($arrayOne[$i] < $arrayTwo[$j]) {
+		} elseif ($a[$i] < $b[$j]) {
 			$i++;
 		} else {
 			$j++;
@@ -89,18 +100,18 @@ function two_pointer_intersect($arrayOne, $arrayTwo) {
 	return $result;
 }
 
-function hash_set_intersect($arrayOne, $arrayTwo) {
-	$hashSet = array_combine($arrayTwo, $arrayTwo);
-	return array_filter($arrayOne, fn($v) => isset($hashSet[$v]));
+function hash_set_intersect($a, $b) {
+	$index = array_combine($b, $b);
+	return array_filter($a, fn($v) => isset($index[$v]));
 }
 
-function hash_set_intersect2(array $arrayOne, array $arrayTwo): array
+function hash_set_intersect2(array $a, array $b): array
 {
-	$hashSet = array_combine($arrayTwo, $arrayTwo);
+	$index = array_combine($b, $b);
 	$result = [];
 
-	foreach ($arrayOne as $value) {
-		if (isset($hashSet[$value])) {
+	foreach ($a as $value) {
+		if (isset($index[$value])) {
 			$result[] = $value;
 		}
 	}
@@ -108,13 +119,13 @@ function hash_set_intersect2(array $arrayOne, array $arrayTwo): array
 	return $result;
 }
 
-function hash_set_intersect3(array $arrayOne, array $arrayTwo): array
+function hash_set_intersect3(array $a, array $b): array
 {
-	$hashSet = array_flip($arrayTwo);
+	$index = array_flip($b);
 	$result = [];
 
-	foreach ($arrayOne as $value) {
-		if (isset($hashSet[$value])) {
+	foreach ($a as $value) {
+		if (isset($index[$value])) {
 			$result[] = $value;
 		}
 	}
@@ -122,17 +133,17 @@ function hash_set_intersect3(array $arrayOne, array $arrayTwo): array
 	return $result;
 }
 
-function hash_set_intersect4(array $arrayOne, array $arrayTwo): array
+function hash_set_intersect4(array $a, array $b): array
 {
-	$hashSet = array_flip($arrayTwo);
+	$index = array_flip($b);
 
-	foreach ($arrayOne as $key => $value) {
-		if (!isset($hashSet[$value])) {
-			unset($arrayOne[$key]);
+	foreach ($a as $key => $value) {
+		if (!isset($index[$value])) {
+			unset($a[$key]);
 		}
 	}
 
-	return $arrayOne;
+	return $a;
 }
 
 function normalizeResult(array $arr): array {
@@ -158,6 +169,7 @@ function runBenchmarks(int $n): void {
 
 	$functions = [
 		'manual_intersect',
+		'manual_intersect2',
 		'array_intersect',
 		'flipped_intersect',
 		'reduce_intersect',
