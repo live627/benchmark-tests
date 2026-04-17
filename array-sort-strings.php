@@ -32,7 +32,7 @@ function formatBytes(int $bytes): string {
 	return sprintf("%.2f %s", $bytes, $units[$i]);
 }
 
-function benchmark(callable $fn, string $label, int $iterations = 10, int $warmup = 3): array
+ function benchmark(callable $fn, string $label, int $iterations = 10, int $warmup = 3): array
 {
 	// Warmup: allows OPcache JIT + branch prediction + allocator reuse
 	for ($i = 0; $i < $warmup; $i++) {
@@ -201,56 +201,6 @@ function sortByReference_multisort(array $a, array $order): array {
 }
 
 /**
- * Stable bucket approach (VERY fast when domain is small)
- */
-function sortByReference_bucket(array $a, array $order): array {
-	$buckets = [];
-
-	foreach ($a as $v) {
-		$buckets[$v][] = $v;
-	}
-
-	$result = [];
-
-	// first: values in $order
-	foreach ($order as $v) {
-		if (isset($buckets[$v])) {
-			foreach ($buckets[$v] as $item) {
-				$result[] = $item;
-			}
-			unset($buckets[$v]);
-		}
-	}
-
-	// then: everything else
-	foreach ($buckets as $group) {
-		foreach ($group as $item) {
-			$result[] = $item;
-		}
-	}
-
-	return $result;
-}
-
-function sortByReference_asort(array $a, array $order): array {
-	$rank = array_flip($order);
-	$ranks = [];
-
-	foreach ($a as $v) {
-		$ranks[] = $rank[$v] ?? PHP_INT_MAX;
-	}
-
-	asort($ranks, SORT_NUMERIC);
-
-	$result = [];
-	foreach ($ranks as $k => $_) {
-		$result[] = $a[$k];
-	}
-
-	return $result;
-}
-
-/**
  * Sort an array by a reference order using a partition-based approach with a partial sort.
  *
  * This implementation splits the input array into two groups:
@@ -318,28 +268,6 @@ function sortByReference_partition(array $a, array $order): array {
 	usort($in, fn($x, $y) => $rank[$x] <=> $rank[$y]);
 
 	return [...$in, ...$out];
-}
-
-function sortByReference_uasort(array $a, array $order): array {
-	$rank = array_flip($order);
-
-	uasort($a, function ($x, $y) use ($rank) {
-		return ($rank[$x] ?? PHP_INT_MAX)
-		     <=> ($rank[$y] ?? PHP_INT_MAX);
-	});
-
-	return $a;
-}
-
-function sortByReference_hash_static(array $a, array $order): array {
-	$rank = array_flip($order);
-
-	usort($a, static function ($x, $y) use ($rank) {
-		return ($rank[$x] ?? PHP_INT_MAX)
-		     <=> ($rank[$y] ?? PHP_INT_MAX);
-	});
-
-	return $a;
 }
 
 /**
@@ -411,32 +339,6 @@ function sortByReference_rank_array (array $a, array $order): array {
 	return $result;
 }
 
-function sortByReference_hybrid(array $a, array $order): array {
-	$rank = array_flip($order);
-
-	$buckets = [];
-	$rest = [];
-
-	foreach ($a as $v) {
-		if (isset($rank[$v])) {
-			$buckets[$rank[$v]][] = $v;
-		} else {
-			$rest[] = $v;
-		}
-	}
-
-	ksort($buckets);
-
-	$result = [];
-	foreach ($buckets as $group) {
-		foreach ($group as $v) {
-			$result[] = $v;
-		}
-	}
-
-	return [...$result, ...$rest];
-}
-
 /**
  * Sort an array by a reference order using a near-linear-time bucket strategy.
  *
@@ -486,7 +388,7 @@ function sortByReference_hybrid(array $a, array $order): array {
  * @param array $order Reference ordering (priority list)
  * @return array       Sorted array
  */
-function sortByReference_linear(array $a, array $order): array {
+function sortByReference_bucket(array $a, array $order): array {
 	$rank = array_flip($order);
 	$k = count($order);
 
@@ -535,7 +437,7 @@ function randomString(int $length = 10): string
 }
 
 function runBenchmarks(int $n, int $iterations = 10, int $warmup = 3): void {
-	echo "\n=== Array Sort Benchmark for " . number_format($n) . " ints with " . number_format($iterations) . " iterations ===\n";
+	echo "\n=== Array Sort Benchmark for " . number_format($n) . " strings with " . number_format($iterations) . " iterations ===\n";
 
 	$one = [];
 	for ($i = 0; $i < $n; $i++) {
@@ -619,6 +521,6 @@ function runBenchmarks(int $n, int $iterations = 10, int $warmup = 3): void {
 }
 
 // Run for various sizes
-foreach ([20, 200, 2000, 20000] as $n) {
+foreach ([20, 200, 2000, 20000, 200000] as $n) {
 	runBenchmarks($n);
 }
