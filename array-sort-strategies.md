@@ -98,7 +98,7 @@ All implementations are now **functionally equivalent**:
 
 value → rank → bucket → linear flatten
 
-```id="pattern_bucket"
+```
 
 ### Characteristics:
 - No comparisons
@@ -123,7 +123,7 @@ value → rank → bucket → linear flatten
 
 value → rank → sort ranks → rebuild
 
-```id="pattern_rank"
+```
 
 ### Characteristics:
 - No comparator overhead
@@ -155,7 +155,7 @@ value → rank → sort ranks → rebuild
 
 split → sort subset → merge
 
-```id="pattern_partition"
+```
 
 ### Characteristics:
 - Only sorts ranked subset
@@ -249,7 +249,7 @@ Sorting performance improves dramatically when moving from:
 
 comparison-based → rank-based → bucket-based
 
-```id="progression"
+```
 
 The optimal strategy is:
 
