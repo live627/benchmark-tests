@@ -1,0 +1,71 @@
+=== Array Sort Benchmark for 20 ints with 10 iterations ===
+-----------------------------------------------------------------------------------------------
+Method                           | Median Time   | Avg Time      | Median Memory
+-----------------------------------------------------------------------------------------------
+sortbyreference_hybrid()         |      0.900 µs |      0.910 µs |        2.12 KB
+sortbyreference_partition()      |      1.000 µs |      1.040 µs |        2.13 KB
+sortbyreference_counting()       |      1.500 µs |      1.470 µs |        2.44 KB
+sortbyreference_asort()          |      1.700 µs |      1.710 µs |        2.70 KB
+sortbyreference_multisort()      |      2.000 µs |      2.050 µs |        5.55 KB
+sortbyreference_uasort()         |      3.000 µs |      3.040 µs |        3.38 KB
+sortbyreference_hash_static()    |      3.000 µs |      2.990 µs |        3.38 KB
+sortbyreference_hash()           |      3.200 µs |      3.800 µs |        3.38 KB
+sortbyreference_rank_array()     |      3.300 µs |      3.330 µs |        3.38 KB
+sortbyreference_bucket()         |      2.200 µs |      2.230 µs |        6.20 KB
+sortbyreference_schwartz()       |      4.300 µs |      4.270 µs |       11.04 KB
+-----------------------------------------------------------------------------------------------
+✅ All implementations match
+
+=== Array Sort Benchmark for 200 ints with 10 iterations ===
+-----------------------------------------------------------------------------------------------
+Method                           | Median Time   | Avg Time      | Median Memory
+-----------------------------------------------------------------------------------------------
+sortbyreference_hybrid()         |      5.600 µs |      5.580 µs |       24.25 KB
+sortbyreference_partition()      |      5.700 µs |      5.730 µs |       24.20 KB
+sortbyreference_counting()       |     10.200 µs |     10.290 µs |       24.56 KB
+sortbyreference_asort()          |     16.200 µs |     16.130 µs |       28.20 KB
+sortbyreference_bucket()         |     18.600 µs |     18.600 µs |       62.30 KB
+sortbyreference_multisort()      |     20.600 µs |     20.700 µs |       62.14 KB
+sortbyreference_uasort()         |     58.500 µs |     58.610 µs |       28.88 KB
+sortbyreference_hash_static()    |     59.200 µs |     59.370 µs |       28.88 KB
+sortbyreference_hash()           |     66.300 µs |     65.810 µs |       28.88 KB
+sortbyreference_rank_array()     |     67.400 µs |     68.300 µs |       28.88 KB
+sortbyreference_schwartz()       |     60.700 µs |     60.980 µs |      110.01 KB
+-----------------------------------------------------------------------------------------------
+✅ All implementations match
+
+=== Array Sort Benchmark for 2,000 ints with 10 iterations ===
+-----------------------------------------------------------------------------------------------
+Method                           | Median Time   | Avg Time      | Median Memory
+-----------------------------------------------------------------------------------------------
+sortbyreference_partition()      |     58.800 µs |     58.730 µs |      112.88 KB
+sortbyreference_hybrid()         |     57.200 µs |     56.640 µs |      119.24 KB
+sortbyreference_counting()       |     96.900 µs |     97.360 µs |      118.56 KB
+sortbyreference_asort()          |    277.400 µs |    277.230 µs |      156.20 KB
+sortbyreference_bucket()         |    185.600 µs |    191.620 µs |      528.91 KB
+sortbyreference_multisort()      |    407.100 µs |    413.980 µs |      412.39 KB
+sortbyreference_uasort()         |   1523.400 µs |   1541.840 µs |      156.88 KB
+sortbyreference_hash_static()    |   1589.300 µs |   1585.000 µs |      156.88 KB
+sortbyreference_schwartz()       |   1297.400 µs |   1310.650 µs |      919.97 KB
+sortbyreference_rank_array()     |   1679.700 µs |   1673.270 µs |      156.88 KB
+sortbyreference_hash()           |   1774.700 µs |   1777.450 µs |      156.88 KB
+-----------------------------------------------------------------------------------------------
+✅ All implementations match
+
+=== Array Sort Benchmark for 20,000 ints with 10 iterations ===
+-----------------------------------------------------------------------------------------------
+Method                           | Median Time   | Avg Time      | Median Memory
+-----------------------------------------------------------------------------------------------
+sortbyreference_counting()       |   1116.000 µs |   1121.330 µs |        2.06 MB
+sortbyreference_hybrid()         |   1260.900 µs |   1094.860 µs |        2.10 MB
+sortbyreference_partition()      |   1520.500 µs |   1523.040 µs |        1.67 MB
+sortbyreference_asort()          |   3178.300 µs |   3134.380 µs |        2.38 MB
+sortbyreference_bucket()         |   1930.400 µs |   1912.320 µs |        5.25 MB
+sortbyreference_multisort()      |   4876.600 µs |   4873.060 µs |        6.28 MB
+sortbyreference_uasort()         |  15568.600 µs |  16171.840 µs |        2.38 MB
+sortbyreference_hash_static()    |  16002.700 µs |  16304.460 µs |        2.38 MB
+sortbyreference_rank_array()     |  17351.400 µs |  17323.890 µs |        2.38 MB
+sortbyreference_hash()           |  17733.600 µs |  17668.510 µs |        2.38 MB
+sortbyreference_schwartz()       |  15375.100 µs |  15485.810 µs |        9.39 MB
+-----------------------------------------------------------------------------------------------
+✅ All implementations match
