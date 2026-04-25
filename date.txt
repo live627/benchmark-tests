@@ -3,12 +3,12 @@ Sample input: 25/Oct/2025:00:00:00 +0000 ... (500000 dates)
 -----------------------------------------------------------------------------------------------
 Method                           | Time (ms)    | Memory Used     | Errors
 -----------------------------------------------------------------------------------------------
-strtotime()                      |    457.322 ms |        664.00 B |        0
-parseStrtotimeCached()           |    463.727 ms |        30.00 MB |        0
-DateTime::createFromFormat()     |    555.924 ms |        624.00 B |        0
-DateTimeImm::createFromFormat()  |    568.708 ms |        624.00 B |        0
-parseApacheManual()              |    506.045 ms |         1.16 KB |        0
-parseApacheManualCached()        |    290.160 ms |         4.00 MB |        0
-parseApacheDateTimeCached()      |    254.086 ms |         4.00 MB |        0
-parseApacheDateTimeImmCached()   |    244.591 ms |         4.00 MB |        0
+strtotime()                      |    464.737 ms |        664.00 B |        0
+parseStrtotimeCached()           |    477.557 ms |        30.00 MB |        0
+DateTime::createFromFormat()     |    558.525 ms |        624.00 B |        0
+DateTimeImm::createFromFormat()  |    572.111 ms |        624.00 B |        0
+parseApacheManual()              |    395.952 ms |        696.00 B |        0
+parseApacheManualCached()        |    223.527 ms |         4.00 MB |        0
+parseApacheDateTimeCached()      |    222.591 ms |         4.00 MB |        0
+parseApacheDateTimeImmCached()   |    218.494 ms |         4.00 MB |        0
 -----------------------------------------------------------------------------------------------
