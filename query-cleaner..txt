@@ -1,40 +1,127 @@
 === Benchmark for 20000 queries ===
                           : total (ms) | avg/query (µs) |     memory
 --------------------------------------------------------------------
-SMF 2 cleaner             :     21.411 |        1.071 |     0.00 MB
-SMF 3 cleaner             :     18.936 |        0.947 |     0.00 MB
-New cleaner               :      7.257 |        0.363 |     0.00 MB
+SMF 2.1.7 cleaner         :     23.418 |        1.172 |     0.00 MB
+SMF 3 cleaner             :     22.532 |        1.127 |     0.00 MB
+live627 cleaner           :      9.262 |        0.463 |     0.00 MB
 
 === Benchmark for 200000 queries ===
                           : total (ms) | avg/query (µs) |     memory
 --------------------------------------------------------------------
-SMF 2 cleaner             :    193.541 |        0.968 |     0.00 MB
-SMF 3 cleaner             :    189.908 |        0.950 |     0.00 MB
-New cleaner               :     71.892 |        0.359 |     0.00 MB
+SMF 2.1.7 cleaner         :    223.293 |        1.117 |     0.00 MB
+SMF 3 cleaner             :    223.469 |        1.117 |     0.00 MB
+live627 cleaner           :     91.623 |        0.458 |     0.00 MB
 
 === Benchmark for 1000000 queries ===
                           : total (ms) | avg/query (µs) |     memory
 --------------------------------------------------------------------
-SMF 2 cleaner             :    964.655 |        0.965 |     0.00 MB
-SMF 3 cleaner             :    937.421 |        0.937 |     0.00 MB
-New cleaner               :    354.084 |        0.354 |     0.00 MB
+SMF 2.1.7 cleaner         :   1114.624 |        1.115 |     0.00 MB
+SMF 3 cleaner             :   1102.452 |        1.102 |     0.00 MB
+live627 cleaner           :    458.680 |        0.459 |     0.00 MB
 
-=== Detection differences ===
+=== Detection differences: SMF 2.1.7 cleaner ===
+=== Detection differences: SMF 3 cleaner ===
+=== Detection differences: live627 cleaner ===
 
  === Generating very large INSERT with 50000 rows ===
 Generated SQL length: 4,016,651 bytes in 0.029s
 
-=== Running SMF 2 cleaner on the huge INSERT ===
+=== Running SMF 2.1.7 cleaner on the huge INSERT ===
 Cleaner result: ALLOWED
-Cleaner runtime: 4.473 seconds
-Peak memory: 16.00 MB
+Cleaner runtime: 0.021 seconds
+Peak memory: 2.62 MB
 
 === Running SMF 3 cleaner on the huge INSERT ===
 Cleaner result: ALLOWED
 Cleaner runtime: 0.021 seconds
-Peak memory: 32.00 MB
+Peak memory: 2.62 MB
 
-=== Running New cleaner on the huge INSERT ===
+=== Running live627 cleaner on the huge INSERT ===
 Cleaner result: ALLOWED
-Cleaner runtime: 0.005 seconds
-Peak memory: 22.00 MB
+Cleaner runtime: 0.007 seconds
+Peak memory: 0.98 MB
+
+=== Comparing normalized $clean outputs ===
+
+Query:
+SELECT * FROM users WHERE id = 1
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT * FROM users WHERE name='O\'Connor'
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT * FROM users; DROP TABLE users;
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT * FROM log WHERE msg LIKE '%/*comment*/%';
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT SLEEP(2)
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT * FROM messages WHERE text='normal' -- trick
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT /*!40001 SQL_NO_CACHE */ * FROM posts
+✅ All cleaners produced identical $clean values.
+
+Query:
+INSERT INTO tbl VALUES(1, 'safe')
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT 'This string has a ; semicolon' AS test
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT 'This string has a -- dash' AS test
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT 'SLEEP(10)' AS test
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT 'benchmark(1000, MD5(1))' AS test
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT * FROM /*!40100 ON DUPLICATE KEY UPDATE id_msg = 42 */ tbl
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT 'Escaped \' quote inside\\\';' AS test
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT 'Escaped '' quote inside''\'';' AS test
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT * FROM users WHERE name='Alice' AND comment='/* tricky */' -- end
+✅ All cleaners produced identical $clean values.
+
+Query:
+SELECT /*!40000 USE INDEX (idx_test) */ * FROM posts WHERE id=1
+✅ All cleaners produced identical $clean values.
+
+Query:
+            INSERT INTO smf_personal_messages("id_pm_head", "id_member_from", "deleted_by_sender", "from_name", "msgtime", "subject", "body")
+            VALUES
+                (0, 1, 0, SUBSTRING('admin', 1, 255), 1761181726, SUBSTRING('Hello world
+'' \';', 1, 255), SUBSTRING('I&#39;ll', 1, 65534)) RETURNING id_pm
+✅ All cleaners produced identical $clean values.
+
+Query:
+                                SELECT s.code, f.filename, s.description
+                                FROM smf_smileys AS s
+                                        JOIN smf_smiley_files AS f ON (s.id_smiley = f.id_smiley)
+                                WHERE f.smiley_set = 'fugue'
+                                        AND s.code IN ('>:D', ':D', '::)', '>:(', ':))', ':)', ';)', ';D', ':(', ':o', '8)', ':P', '???', ':-[', ':-X', ':-*', ':\'(', ':-\\', '^-^', 'O0', 'C:-)', 'O:-)')
+✅ All cleaners produced identical $clean values.
