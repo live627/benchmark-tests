@@ -82,50 +82,12 @@ function smf217_cleaner($db_string)
 {
 	// Comments that are allowed in a query are preg_removed.
 	static $allowed_comments_from = array(
-		'~(?<![\'\\\\])\'\X*?(?<![\'\\\\])\'~',
-		'~\s+~s',
-		'~/\*!40001 SQL_NO_CACHE \*/~',
-		'~/\*!40000 USE INDEX \([A-Za-z\_]+?\) \*/~',
-		'~/\*!40100 ON DUPLICATE KEY UPDATE id_msg = \d+ \*/~',
-	);
-
-	static $allowed_comments_to = array(
-		' %s ',
-		' ',
-		'',
-		'',
-		'',
-	);
-
-	$clean = trim(strtolower(preg_replace($allowed_comments_from, $allowed_comments_to, $db_string)));
-
-	$GLOBALS['_last_clean'][__FUNCTION__] = $clean;
-
-	if (strpos($clean, '/*') > 2 || strpos($clean, '--') !== false || strpos($clean, ';') !== false)
-		$fail = true;
-	// Trying to change passwords, slow us down, or something?
-	elseif (strpos($clean, 'sleep') !== false && preg_match('~(^|[^a-z])sleep($|[^[_a-z])~s', $clean) != 0)
-		$fail = true;
-	elseif (strpos($clean, 'benchmark') !== false && preg_match('~(^|[^a-z])benchmark($|[^[a-z])~s', $clean) != 0)
-		$fail = true;
-
-	return empty($fail);
-}
-
-// ------------------------------------------------------------
-// sbulen cleaner
-// ------------------------------------------------------------
-function sbulen_cleaner($db_string)
-{
-	// Comments that are allowed in a query are preg_removed.
-	static $allowed_comments_from = array(
 		'~\'\X*?\'~s',
 		'~\s+~s',
 		'~/\*!40001 SQL_NO_CACHE \*/~',
 		'~/\*!40000 USE INDEX \([A-Za-z\_]+?\) \*/~',
 		'~/\*!40100 ON DUPLICATE KEY UPDATE id_msg = \d+ \*/~',
 	);
-
 	static $allowed_comments_to = array(
 		' %s ',
 		' ',
@@ -135,10 +97,7 @@ function sbulen_cleaner($db_string)
 	);
 
 	// Clear out escaped backslashes & single quotes first, to make it simpler to ID & remove string literals
-	if (str_contains($db_string, '\'\''))
-		$clean = str_replace('\'\'', '', $db_string);
-	else
-		$clean = str_replace(array('\\\\', '\\\''), array('', ''), $db_string);
+	$clean = str_replace(array('\\\\', '\\\'', '\'\''), array('', '', ''), $db_string);
 	$clean = trim(strtolower(preg_replace($allowed_comments_from, $allowed_comments_to, $clean)));
 
 	$GLOBALS['_last_clean'][__FUNCTION__] = $clean;
@@ -160,32 +119,29 @@ function sbulen_cleaner($db_string)
 function smf3_cleaner($db_string)
 {
 	// Comments that are allowed in a query are preg_removed.
-	static $allowed_comments_from = array(
+	$allowed_comments_from = [
+		'~\'\X*?\'~s',
 		'~\s+~s',
 		'~/\*!40001 SQL_NO_CACHE \*/~',
 		'~/\*!40000 USE INDEX \([A-Za-z\_]+?\) \*/~',
 		'~/\*!40100 ON DUPLICATE KEY UPDATE id_msg = \d+ \*/~',
-	);
-	static $allowed_comments_to = array(
+	];
+	$allowed_comments_to = [
+		' %s ',
 		' ',
 		'',
 		'',
 		'',
-	);
+	];
 
-	$clean = preg_split('/(?<![\'\\\\])\'(?![\'])/', $db_string);
-
-	for ($i = 0; $i < \count($clean); $i++) {
-		if ($i % 2 === 1) {
-			$clean[$i] = ' %s ';
-		}
-	}
-
+	// Clear out escaped backslashes & single quotes first, to make it simpler to ID & remove string literals
+	$clean = str_replace(['\\\\', '\\\'', '\'\''], ['', '', ''], $db_string);
 	$clean = trim(strtolower(preg_replace(
 		$allowed_comments_from,
 		$allowed_comments_to,
-		implode('', $clean),
+		$clean,
 	)));
+
 	$GLOBALS['_last_clean'][__FUNCTION__] = $clean;
 
 	return !(
@@ -206,19 +162,19 @@ function smf3_cleaner($db_string)
 function live627_cleaner($db_string)
 {
 	// Comments that are allowed in a query are preg_removed.
-	static $allowed_comments =  '~/\*!(?:40001\s+SQL_NO_CACHE|40000\s+USE\s+INDEX\s+\([A-Za-z_]+?\)|40100\s+ON\s+DUPLICATE\s+KEY\s+UPDATE\s+id_msg\s+=\s+\d+)\s+\*/~';
+	static $allowed_comments = '~\/\*!(?:40001\s+SQL_NO_CACHE|40000\s+USE\s+INDEX\s+\([A-Za-z_]+\)|40100\s+ON\s+DUPLICATE\s+KEY\s+UPDATE\s+id_msg\s+=\s+\d+)\s+\*\/~';
 
-	// Clear out escaped backslashes & single quotes first, to make it simpler to ID & remove string literals
-	// Remove escaped sequences inside SQL string literals
-	$string = str_contains($db_string, '\'\'') ? '/\'\'/' : '/\\\\\'|\\\\\\\\/';
-	//~ if (str_contains($db_string, '\'\''))
-		//~ $clean = str_replace('\'\'', '', $db_string);
-	//~ else
-		//~ $clean = str_replace(array('\\\\', '\\\''), array('', ''), $db_string);
+	// Remove string literals and allowed comments so that the query can be examined.
 	$clean = preg_replace(
-		[$string, '/\'[^\']+\'/', $allowed_comments],
-		['', '%s', ''],
-		$db_string
+		[
+			'~\'(?:\\\\.|\'\'|[^\'\\\\])*\'~s',
+			$allowed_comments,
+		],
+		[
+			'%s',
+			'',
+		],
+		$db_string,
 	);
 
 	$GLOBALS['_last_clean'][__FUNCTION__] = $clean;
@@ -237,6 +193,7 @@ function bench(string $label, callable $fn, array $queries, int $iterations)
 {
 	$totalQueries = $iterations * count($queries);
 	memory_reset_peak_usage();
+	$mem = -memory_get_peak_usage();
 	$start = hrtime(true);
 
 	for ($i = 0; $i < $iterations; $i++) {
@@ -246,7 +203,7 @@ function bench(string $label, callable $fn, array $queries, int $iterations)
 	}
 
 	$elapsed = (hrtime(true) - $start) / 1e6; // total ms
-	$mem = memory_get_peak_usage();
+	$mem += memory_get_peak_usage();
 	$avgUs = ($elapsed * 1000) / $totalQueries; // µs per query
 	return [$label, $elapsed, $avgUs, $mem, $totalQueries];
 }
@@ -279,7 +236,7 @@ $queries = [
 	"SELECT /*!40000 USE INDEX (idx_test) */ * FROM posts WHERE id=1",
 	"            INSERT INTO smf_personal_messages(\"id_pm_head\", \"id_member_from\", \"deleted_by_sender\", \"from_name\", \"msgtime\", \"subject\", \"body\")
             VALUES
-                (0, 1, 0, SUBSTRING('admin', 1, 255), 1761181726, SUBSTRING('Hello world'' \\', 1, 255), SUBSTRING('I&#39;ll', 1, 65534)) RETURNING id_pm",
+                (0, 1, 0, SUBSTRING('admin', 1, 255), 1761181726, SUBSTRING('Hello world \n'' \\';', 1, 255), SUBSTRING('I&#39;ll', 1, 65534)) RETURNING id_pm",
 	"				SELECT s.code, f.filename, s.description
 				FROM smf_smileys AS s
 					JOIN smf_smiley_files AS f ON (s.id_smiley = f.id_smiley)
@@ -297,9 +254,7 @@ $scales = [
 ];
 
 $tests = [
-	['SMF 2.1.6 cleaner', 'smf2_cleaner'],
 	['SMF 2.1.7 cleaner', 'smf217_cleaner'],
-	['sbulen cleaner', 'sbulen_cleaner'],
 	['SMF 3 cleaner', 'smf3_cleaner'],
 	['live627 cleaner', 'live627_cleaner'],
 ];
@@ -331,7 +286,7 @@ foreach ($tests as [$label, $fn]) {
 	echo "=== Detection differences: $label ===\n";
 
 	foreach ($queries as $sql) {
-		$old = smf2_cleaner($sql);
+		$old = smf217_cleaner($sql);
 		$new = $fn($sql);
 
 		if ($old !== $new) {
@@ -398,9 +353,17 @@ foreach ($queries as $sql) {
 	$cleans = $GLOBALS['_last_clean'];
 	$GLOBALS['_last_clean'] = []; // reset for next query
 
-	$ref = reset($cleans);
-	$diffs = array_filter($cleans, fn($v) => strtolower($v) !== strtolower($ref));
+	$normalize = static fn($v) =>
+		trim(strtolower(
+			preg_replace(['/\s*%s\s*/', '/\s+/'], ['%s', ' '], $v)
+		));
 
+	$ref = reset($cleans);
+
+	$diffs = array_filter(
+		$cleans,
+		static fn($v) => $normalize($v) !== $normalize($ref)
+	);
 	if (empty($diffs)) {
 		echo "✅ All cleaners produced identical \$clean values.\n";
 	} else {
