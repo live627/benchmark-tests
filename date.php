@@ -33,7 +33,7 @@ function benchmark(callable $fn, string $label): array {
 function generateApacheDates(int $days = 5, int $perDay = 1000, string $startDate = '2025-10-25 00:00:00'): array {
 	$dates = [];
 	$startTs = strtotime($startDate);
-	
+
 	for ($d = 0; $d < $days; $d++) {
 		$dayBase = $startTs + $d * 86400;
 		for ($i = 0; $i < $perDay; $i++) {
@@ -43,43 +43,57 @@ function generateApacheDates(int $days = 5, int $perDay = 1000, string $startDat
 			$dates[] = gmdate('d/M/Y:H:i:s O', $ts);
 		}
 	}
-	
+
 	return $dates;
 }
 
 /**
  * Manual parser for Apache-style date format.
+ *
+ * Expected format: "25/Oct/2025:12:34:56 +0000"
+ * Returns Unix timestamp (UTC) or false on obvious format failure.
  */
-function parseApacheManual(string $s): int|false {
+function parseApacheManual(string $s): int|false
+{
+	// Expected format: 25/Oct/2025:12:34:56 +0000
+	if (strlen($s) !== 26) {
+		return false;
+	}
+
 	static $months = [
-		'Jan'=>1,'Feb'=>2,'Mar'=>3,'Apr'=>4,'May'=>5,'Jun'=>6,
-		'Jul'=>7,'Aug'=>8,'Sep'=>9,'Oct'=>10,'Nov'=>11,'Dec'=>12
+		'Jan' => 1,'Feb' => 2,'Mar' => 3,'Apr' => 4,'May' => 5,'Jun' => 6,
+		'Jul' => 7,'Aug' => 8,'Sep' => 9,'Oct' => 10,'Nov' => 11,'Dec' => 12
 	];
-	if (!preg_match(
-		'/^(\d{2})\/([A-Za-z]{3})\/(\d{4}):(\d{2}):(\d{2}):(\d{2}) ([\+\-]\d{4})$/',
-		$s, $m
-	)) return false;
 
-	[$_, $d, $mon, $y, $h, $i, $sec, $tz] = $m;
+	$mon   = substr($s, 3, 3);
 	$month = $months[$mon] ?? 0;
-	if (!$month) return false;
 
-	$tzSign = $tz[0] === '-' ? -1 : 1;
-	$tzHours = (int)substr($tz, 1, 2);
-	$tzMins = (int)substr($tz, 3, 2);
-	$tzOffset = $tzSign * ($tzHours * 3600 + $tzMins * 60);
+	if ($month === 0) {
+		return false;
+	}
 
-	return gmmktime($h, $i, $sec, $month, $d, $y) - $tzOffset;
+	// Using fixed string offsets here is much faster than a regex
+	$d   = $s[0] * 10 + $s[1];
+	$y   = $s[7] * 1000 + $s[8] * 100 + $s[9] * 10 + $s[10];
+	$h   = $s[12] * 10 + $s[13];
+	$min = $s[15] * 10 + $s[16];
+	$sec = $s[18] * 10 + $s[19];
+
+	$tzSign = $s[21] === '-' ? -1 : 1;
+	$tzH = $s[22] * 10 + $s[23];
+	$tzM = $s[24] * 10 + $s[25];
+	$tzOffset = $tzSign * ($tzH * 3600 + $tzM * 60);
+
+	return gmmktime($h, $min, $sec, $month, $d, $y) - $tzOffset;
 }
 
 /**
  * Optimized cached version — caches per-day base and per-second offsets.
+ *
+ * Expected format: "25/Oct/2025:12:34:56 +0000"
+ * Returns Unix timestamp (UTC) or false on obvious format failure.
  */
 function parseApacheManualCached(string $s): int|false {
-	static $months = [
-		'Jan'=>1,'Feb'=>2,'Mar'=>3,'Apr'=>4,'May'=>5,'Jun'=>6,
-		'Jul'=>7,'Aug'=>8,'Sep'=>9,'Oct'=>10,'Nov'=>11,'Dec'=>12
-	];
 	static $day_cache = [];
 	static $time_cache = [];
 
@@ -89,30 +103,45 @@ function parseApacheManualCached(string $s): int|false {
 	}
 
 	// Using fixed string offsets here is much faster than a regex
-	$d    = substr($s, 0, 2);   // day: "25"
-	$mon  = substr($s, 3, 3);   // month: "Oct"
-	$y    = substr($s, 7, 4);   // year: "2025"
-	$h    = substr($s, 12, 2);  // hour: "12"
-	$i    = substr($s, 15, 2);  // minute: "34"
-	$sec  = substr($s, 18, 2);  // second: "56"
-	$tz   = substr($s, 21, 5);  // timezone: "+0000"
-
-	$monthNum = $months[$mon] ?? 0;
-	if ($monthNum === 0) return false;
-
-	$day_key = $y + $monthNum + $d;
-	$time_key = $h * 3600 + $i * 60 + $sec;
+	$day_key  = substr_replace($s, '', 11, 10); // remove ":HH:MM:SS "
 
 	if (!isset($day_cache[$day_key])) {
-		$tzSign = $tz[0] === '-' ? -1 : 1;
-		$tzHours = (int)substr($tz, 1, 2);
-		$tzMins = (int)substr($tz, 3, 2);
-		$tzOffset = $tzSign * ($tzHours * 3600 + $tzMins * 60);
-		$day_cache[$day_key] = gmmktime(0, 0, 0, $monthNum, $d, $y) - $tzOffset;
+		static $months = [
+			'Jan' => 1,'Feb' => 2,'Mar' => 3,'Apr' => 4,'May' => 5,'Jun' => 6,
+			'Jul' => 7,'Aug' => 8,'Sep' => 9,'Oct' => 10,'Nov' => 11,'Dec' => 12
+		];
+
+		$mon   = substr($s, 3, 3);   // month: "Oct"
+		$month = $months[$mon] ?? 0;
+
+		if ($month === 0) {
+			return false;
+		}
+
+		$d   = $s[0] * 10 + $s[1];
+		$y   = $s[7] * 1000 + $s[8] * 100 + $s[9] * 10 + $s[10];
+		$tzSign = $s[21] === '-' ? -1 : 1;
+		$tzH = $s[22] * 10 + $s[23];
+		$tzM = $s[24] * 10 + $s[25];
+		$tzOffset = $tzSign * ($tzH * 3600 + $tzM * 60);
+		$day_cache[$day_key] = gmmktime(0, 0, 0, $month, $d, $y) - $tzOffset;
+
+		if ($day_cache[$day_key] === false) {
+			return false;
+		}
 	}
 
+	// hours:   0–23 (needs 5 bits)
+	// minutes: 0–59 (needs 6 bits)
+	// seconds: 0–59 (needs 6 bits)
+	$h = $s[12] * 10 + $s[13];
+	$m = $s[15] * 10 + $s[16];
+	$sec = $s[18] * 10 + $s[19];
+	$time_key = ($h << 12) | ($m << 6) | $sec;
+
 	if (!isset($time_cache[$time_key])) {
-		$time_cache[$time_key] = $time_key;
+		$time = $h * 3600 + $m * 60 + $sec;
+		$time_cache[$time_key] = $time;
 	}
 
 	return $day_cache[$day_key] + $time_cache[$time_key];
@@ -120,6 +149,9 @@ function parseApacheManualCached(string $s): int|false {
 
 /**
  * Cached DateTime approach — caches per-day base DateTime and seconds offsets.
+ *
+ * Expected format: "25/Oct/2025:12:34:56 +0000"
+ * Returns Unix timestamp (UTC) or false on obvious format failure.
  */
 function parseApacheDateTimeCached(string $s): int|false {
 	static $day_cache = [];
@@ -131,22 +163,29 @@ function parseApacheDateTimeCached(string $s): int|false {
 	}
 
 	// Using fixed string offsets here is much faster than a regex
-	$day_str = substr($s, 0, 11);   // "25/Oct/2025"
-	$h      = substr($s, 12, 2);   // "12"
-	$i      = substr($s, 15, 2);   // "34"
-	$sec    = substr($s, 18, 2);   // "56"
-	$tz     = substr($s, 21, 5);   // "+0000"
-
-	$day_key = "$day_str $tz";
-	$time_key = $h * 3600 + $i * 60 + $sec;
+	$day_key  = substr_replace($s, '', 11, 10); // remove ":HH:MM:SS "
 
 	if (!isset($day_cache[$day_key])) {
-		$day_cache[$day_key] = DateTime::createFromFormat('d/M/Y H:i:s O', "$day_str 00:00:00 $tz")->getTimestamp();
-		if (!$day_cache[$day_key]) return false;
+		$dt = DateTime::createFromFormat('!d/M/YO', $day_key);
+
+		if ($dt === false) {
+			return false;
+		}
+
+		$day_cache[$day_key] = $dt->getTimestamp();
 	}
 
+	// hours:   0–23 (needs 5 bits)
+	// minutes: 0–59 (needs 6 bits)
+	// seconds: 0–59 (needs 6 bits)
+	$h = $s[12] * 10 + $s[13];
+	$m = $s[15] * 10 + $s[16];
+	$sec = $s[18] * 10 + $s[19];
+	$time_key = ($h << 12) | ($m << 6) | $sec;
+
 	if (!isset($time_cache[$time_key])) {
-		$time_cache[$time_key] = $time_key;
+		$time = $h * 3600 + $m * 60 + $sec;
+		$time_cache[$time_key] = $time;
 	}
 
 	return $day_cache[$day_key] + $time_cache[$time_key];
@@ -154,6 +193,9 @@ function parseApacheDateTimeCached(string $s): int|false {
 
 /**
  * Cached DateTimeImmutable approach.
+ *
+ * Expected format: "25/Oct/2025:12:34:56 +0000"
+ * Returns Unix timestamp (UTC) or false on obvious format failure.
  */
 function parseApacheDateTimeImmCached(string $s): int|false {
 	static $day_cache = [];
@@ -165,24 +207,29 @@ function parseApacheDateTimeImmCached(string $s): int|false {
 	}
 
 	// Using fixed string offsets here is much faster than a regex
-	$day_str = substr($s, 0, 11);   // "25/Oct/2025"
-	$h      = substr($s, 12, 2);   // "12"
-	$i      = substr($s, 15, 2);   // "34"
-	$sec    = substr($s, 18, 2);   // "56"
-	$tz     = substr($s, 21, 5);   // "+0000"
-
-	$day_key = $day_str . $tz;
-	$time_key = $h * 3600 + $i * 60 + $sec;
+	$day_key  = substr_replace($s, '', 11, 10); // remove ":HH:MM:SS "
 
 	if (!isset($day_cache[$day_key])) {
-		$day_cache[$day_key] = DateTimeImmutable::createFromFormat('d/M/Y H:i:s O', $day_str . ' 00:00:00 ' . $tz)->getTimestamp();
-		if (!$day_cache[$day_key]) {
+		$dti = DateTimeImmutable::createFromFormat('!d/M/YO', $day_key);
+
+		if ($dti === false) {
 			return false;
 		}
+
+		$day_cache[$day_key] = $dti->getTimestamp();
 	}
 
+	// hours:   0–23 (needs 5 bits)
+	// minutes: 0–59 (needs 6 bits)
+	// seconds: 0–59 (needs 6 bits)
+	$h = $s[12] * 10 + $s[13];
+	$m = $s[15] * 10 + $s[16];
+	$sec = $s[18] * 10 + $s[19];
+	$time_key = ($h << 12) | ($m << 6) | $sec;
+
 	if (!isset($time_cache[$time_key])) {
-		$time_cache[$time_key] = $time_key;
+		$time = $h * 3600 + $m * 60 + $sec;
+		$time_cache[$time_key] = $time;
 	}
 
 	return $day_cache[$day_key] + $time_cache[$time_key];
@@ -197,6 +244,7 @@ function parseStrtotimeCached(string $s): int|false {
 
 	$ts = strtotime($s);
 	if ($ts !== false) $cache[$s] = $ts;
+
 	return $ts;
 }
 
