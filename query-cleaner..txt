@@ -24,7 +24,7 @@ live627 cleaner           :    458.680 |        0.459 |     0.00 MB
 === Detection differences: live627 cleaner ===
 
  === Generating very large INSERT with 50000 rows ===
-Generated SQL length: 4,016,651 bytes in 0.029s
+Generated SQL length: 4,016,651 bytes in 10.132ms
 
 === Running SMF 2.1.7 cleaner on the huge INSERT ===
 Cleaner result: ALLOWED
