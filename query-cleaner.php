@@ -306,23 +306,34 @@ $columns = ['id', 'payload', 'meta'];
 $rows = 50000; // adjust as needed
 
 echo "\n === Generating very large INSERT with {$rows} rows ===\n";
-$startGen = microtime(true);
 
+$genTime = -hrtime(true);
+
+$xCache = [];
+$yCache = [];
 $values = [];
+
+for ($i = 0; $i < 50; $i++) {
+	$xCache[] = str_repeat('x', $i);
+
+	if ($i < 30) {
+		$yCache[] = str_repeat('y', $i);
+	}
+}
+
 for ($i = 1; $i <= $rows; $i++) {
-	$row = [
-		$i, // id
-		"'" . addslashes("payload_{$i}_" . str_repeat('x', $i % 50)) . "'",
-		"'" . addslashes("meta_{$i}_" . str_repeat('y', $i % 30)) . "'"
-	];
-	$values[] = '(' . implode(', ', $row) . ')';
+	$x = $xCache[$i % 50];
+	$y = $yCache[$i % 30];
+
+	$values[] = "($i, 'payload_{$i}_{$x}', 'meta_{$i}_{$y}')";
 }
 
 $sql = "INSERT INTO `{$table}` (" . implode(', ', $columns) . ") VALUES\n" .
 		implode(",\n", $values);
 
-$genTime = microtime(true) - $startGen;
-echo "Generated SQL length: " . number_format(strlen($sql)) . " bytes in " . round($genTime,3) . "s\n";
+$genTime += hrtime(true);
+
+echo "Generated SQL length: " . number_format(strlen($sql)) . " bytes in " . round($genTime / 1e6, 3) . "ms\n";
 
 // -------------------- Run cleaner --------------------
 
@@ -357,9 +368,7 @@ foreach ($queries as $sql) {
 		trim(strtolower(
 			preg_replace(['/\s*%s\s*/', '/\s+/'], ['%s', ' '], $v)
 		));
-
 	$ref = reset($cleans);
-
 	$diffs = array_filter(
 		$cleans,
 		static fn($v) => $normalize($v) !== $normalize($ref)
