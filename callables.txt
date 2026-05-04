@@ -1,0 +1,20 @@
+php -dopcache.enable_cli=1 -dopcache.jit_buffer_size=100M benchmark.php
+  
+Iterations: 1000000
+----------------------------------------
+arrow function                     34.644 ms
+closure                            34.933 ms
+first-class static                 35.703 ms
+first-class instance               36.058 ms
+first-class dynamic                36.080 ms
+closure from callable              36.358 ms
+first-class function               36.460 ms
+built-in string                    37.462 ms
+invokable object                   38.697 ms
+instance array                     62.652 ms
+dynamic array method               63.336 ms
+variable function                  89.307 ms
+function string                    91.806 ms
+static array                       92.197 ms
+static dynamic array               92.788 ms
+static string                     206.239 ms
