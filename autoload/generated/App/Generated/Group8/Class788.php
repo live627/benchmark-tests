@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Generated\Group8;
+
+/**
+ * Auto-generated class Class788
+ */
+class Class788
+{
+    /**
+     * Example method.
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return 'Class788';
+    }
+}

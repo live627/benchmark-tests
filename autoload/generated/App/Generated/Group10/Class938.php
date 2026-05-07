@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Generated\Group10;
+
+/**
+ * Auto-generated class Class938
+ */
+class Class938
+{
+    /**
+     * Example method.
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return 'Class938';
+    }
+}
