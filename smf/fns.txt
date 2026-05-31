@@ -1,0 +1,3411 @@
+Files:        1599
+Iterations:   1
+
+New regex total: 82.465 ms
+Old regex total: 87.691 ms
+
+New regex avg:   82.465 ms
+Old regex avg:   87.691 ms
+
+Speedup:         1.06x (new regex faster)
+
+New regex count: 4420
+Old regex count: 4166
+
+Differences detected:
+
+Sources\Actions\Activate.php
+  New regex only:
+    + SMF\Actions\Activate::__construct
+    + SMF\Actions\Activate::activate
+    + SMF\Actions\Activate::buildRoute
+    + SMF\Actions\Activate::execute
+    + SMF\Actions\Activate::isRestrictedGuestAccessAllowed
+    + SMF\Actions\Activate::loadMember
+    + SMF\Actions\Activate::parseRoute
+    + SMF\Actions\Activate::resend
+    + SMF\Actions\Activate::showResendRequest
+    + SMF\Actions\Activate::showRetryInvalidCode
+    + SMF\Actions\Activate::showRetryInvalidUser
+    + SMF\Actions\Activate::updateEmail
+  Old regex only:
+    - __construct
+    - activate
+    - buildRoute
+    - execute
+    - isRestrictedGuestAccessAllowed
+    - loadMember
+    - parseRoute
+    - resend
+    - showResendRequest
+    - showRetryInvalidCode
+    - showRetryInvalidUser
+    - updateEmail
+
+Sources\Actions\Admin\ACP.php
+  New regex only:
+    + SMF\Actions\Admin\ACP::adminLogin
+    + SMF\Actions\Admin\ACP::adminLogin_outputPostVars
+    + SMF\Actions\Admin\ACP::construct_query_string
+    + SMF\Actions\Admin\ACP::emailAdmins
+    + SMF\Actions\Admin\ACP::execute
+    + SMF\Actions\Admin\ACP::getFileVersions
+    + SMF\Actions\Admin\ACP::getServerVersions
+    + SMF\Actions\Admin\ACP::init
+    + SMF\Actions\Admin\ACP::prepareDBSettingContext
+    + SMF\Actions\Admin\ACP::saveDBSettings
+    + SMF\Actions\Admin\ACP::saveSettings
+    + SMF\Actions\Admin\ACP::setAdminAreas
+    + SMF\Actions\Admin\ACP::updateAdminPreferences
+  Old regex only:
+    - adminLogin
+    - adminLogin_outputPostVars
+    - construct_query_string
+    - emailAdmins
+    - execute
+    - getFileVersions
+    - getServerVersions
+    - init
+    - prepareDBSettingContext
+    - saveDBSettings
+    - saveSettings
+    - setAdminAreas
+    - updateAdminPreferences
+
+Sources\Actions\Admin\Themes.php
+  New regex only:
+    + SMF\Actions\Admin\Themes::edit
+    + SMF\Actions\Admin\Themes::installFile
+
+Sources\Actions\Agreement.php
+  New regex only:
+    + SMF\Actions\Agreement::__construct
+    + SMF\Actions\Agreement::buildRoute
+    + SMF\Actions\Agreement::canRequireAgreement
+    + SMF\Actions\Agreement::canRequirePrivacyPolicy
+    + SMF\Actions\Agreement::execute
+    + SMF\Actions\Agreement::history
+    + SMF\Actions\Agreement::isAgreementAction
+    + SMF\Actions\Agreement::parseRoute
+    + SMF\Actions\Agreement::prepareAgreementContext
+    + SMF\Actions\Agreement::show
+  Old regex only:
+    - __construct
+    - buildRoute
+    - canRequireAgreement
+    - canRequirePrivacyPolicy
+    - execute
+    - history
+    - isAgreementAction
+    - parseRoute
+    - prepareAgreementContext
+    - show
+
+Sources\Actions\Announce.php
+  New regex only:
+    + SMF\Actions\Announce::__construct
+    + SMF\Actions\Announce::execute
+    + SMF\Actions\Announce::select
+    + SMF\Actions\Announce::send
+  Old regex only:
+    - __construct
+    - execute
+    - select
+    - send
+
+Sources\Actions\AttachmentApprove.php
+  New regex only:
+    + SMF\Actions\AttachmentApprove::execute
+  Old regex only:
+    - execute
+
+Sources\Actions\AttachmentDownload.php
+  New regex only:
+    + SMF\Actions\AttachmentDownload::__construct
+    + SMF\Actions\AttachmentDownload::buildRoute
+    + SMF\Actions\AttachmentDownload::canBeLogged
+    + SMF\Actions\AttachmentDownload::execute
+    + SMF\Actions\AttachmentDownload::parseRoute
+  Old regex only:
+    - __construct
+    - buildRoute
+    - canBeLogged
+    - execute
+    - parseRoute
+
+Sources\Actions\AttachmentUpload.php
+  New regex only:
+    + SMF\Actions\AttachmentUpload::__construct
+    + SMF\Actions\AttachmentUpload::add
+    + SMF\Actions\AttachmentUpload::canBeLogged
+    + SMF\Actions\AttachmentUpload::createAttach
+    + SMF\Actions\AttachmentUpload::delete
+    + SMF\Actions\AttachmentUpload::execute
+    + SMF\Actions\AttachmentUpload::getOutputType
+    + SMF\Actions\AttachmentUpload::isSimpleAction
+    + SMF\Actions\AttachmentUpload::processAttachments
+    + SMF\Actions\AttachmentUpload::sendResponse
+    + SMF\Actions\AttachmentUpload::setResponse
+  Old regex only:
+    - __construct
+    - add
+    - canBeLogged
+    - createAttach
+    - delete
+    - execute
+    - getOutputType
+    - isSimpleAction
+    - processAttachments
+    - sendResponse
+    - setResponse
+
+Sources\Actions\AutoSuggest.php
+  New regex only:
+    + SMF\Actions\AutoSuggest::__construct
+    + SMF\Actions\AutoSuggest::canBeLogged
+    + SMF\Actions\AutoSuggest::checkRegistered
+    + SMF\Actions\AutoSuggest::execute
+    + SMF\Actions\AutoSuggest::getOutputType
+    + SMF\Actions\AutoSuggest::isSimpleAction
+    + SMF\Actions\AutoSuggest::member
+    + SMF\Actions\AutoSuggest::membergroups
+    + SMF\Actions\AutoSuggest::sanitizeSearch
+    + SMF\Actions\AutoSuggest::versions
+  Old regex only:
+    - __construct
+    - canBeLogged
+    - checkRegistered
+    - execute
+    - getOutputType
+    - isSimpleAction
+    - member
+    - membergroups
+    - sanitizeSearch
+    - versions
+
+Sources\Actions\BoardIndex.php
+  New regex only:
+    + SMF\Actions\BoardIndex::buildRoute
+    + SMF\Actions\BoardIndex::cache_getLastPostCallback
+    + SMF\Actions\BoardIndex::cache_getLastPosts
+    + SMF\Actions\BoardIndex::execute
+    + SMF\Actions\BoardIndex::get
+    + SMF\Actions\BoardIndex::getLastPosts
+    + SMF\Actions\BoardIndex::prepareLastPost
+    + SMF\Actions\BoardIndex::propagateStatsToParents
+  Old regex only:
+    - buildRoute
+    - cache_getLastPostCallback
+    - cache_getLastPosts
+    - execute
+    - get
+    - getLastPosts
+    - prepareLastPost
+    - propagateStatsToParents
+
+Sources\Actions\BuddyListToggle.php
+  New regex only:
+    + SMF\Actions\BuddyListToggle::__construct
+    + SMF\Actions\BuddyListToggle::execute
+  Old regex only:
+    - __construct
+    - execute
+
+Sources\Actions\Calendar.php
+  New regex only:
+    + SMF\Actions\Calendar::__construct
+    + SMF\Actions\Calendar::authenticateForExport
+    + SMF\Actions\Calendar::buildRoute
+    + SMF\Actions\Calendar::cacheAdjustData
+    + SMF\Actions\Calendar::cacheIsOutdated
+    + SMF\Actions\Calendar::cache_getOffsetIndependentEvents
+    + SMF\Actions\Calendar::cache_getRecentEvents
+    + SMF\Actions\Calendar::canLinkEvent
+    + SMF\Actions\Calendar::clock
+    + SMF\Actions\Calendar::createToken
+    + SMF\Actions\Calendar::execute
+    + SMF\Actions\Calendar::export
+    + SMF\Actions\Calendar::getBirthdayRange
+    + SMF\Actions\Calendar::getBoardsForExport
+    + SMF\Actions\Calendar::getCalendarGrid
+    + SMF\Actions\Calendar::getCalendarList
+    + SMF\Actions\Calendar::getCalendarWeek
+    + SMF\Actions\Calendar::getEventPoster
+    + SMF\Actions\Calendar::getEventRange
+    + SMF\Actions\Calendar::getHolidayRange
+    + SMF\Actions\Calendar::getTodayInfo
+    + SMF\Actions\Calendar::parseRoute
+    + SMF\Actions\Calendar::post
+    + SMF\Actions\Calendar::show
+    + SMF\Actions\Calendar::validateEventPost
+  Old regex only:
+    - __construct
+    - authenticateForExport
+    - buildRoute
+    - cacheAdjustData
+    - cacheIsOutdated
+    - cache_getOffsetIndependentEvents
+    - cache_getRecentEvents
+    - canLinkEvent
+    - clock
+    - createToken
+    - execute
+    - export
+    - getBirthdayRange
+    - getBoardsForExport
+    - getCalendarGrid
+    - getCalendarList
+    - getCalendarWeek
+    - getEventPoster
+    - getEventRange
+    - getHolidayRange
+    - getTodayInfo
+    - parseRoute
+    - post
+    - show
+    - validateEventPost
+
+Sources\Actions\CoppaForm.php
+  New regex only:
+    + SMF\Actions\CoppaForm::buildRoute
+    + SMF\Actions\CoppaForm::execute
+    + SMF\Actions\CoppaForm::isRestrictedGuestAccessAllowed
+    + SMF\Actions\CoppaForm::parseRoute
+  Old regex only:
+    - buildRoute
+    - execute
+    - isRestrictedGuestAccessAllowed
+    - parseRoute
+
+Sources\Actions\Credits.php
+  New regex only:
+    + SMF\Actions\Credits::call
+    + SMF\Actions\Credits::execute
+  Old regex only:
+    - call
+    - execute
+
+Sources\Actions\Display.php
+  New regex only:
+    + SMF\Actions\Display::buildButtons
+    + SMF\Actions\Display::buildRoute
+    + SMF\Actions\Display::checkMovedMergedRedirect
+    + SMF\Actions\Display::checkPrevNextRedirect
+    + SMF\Actions\Display::execute
+    + SMF\Actions\Display::getMessagesAndPosters
+    + SMF\Actions\Display::getNotificationMode
+    + SMF\Actions\Display::getWhoViewing
+    + SMF\Actions\Display::incrementNumViews
+    + SMF\Actions\Display::initDisplayContext
+    + SMF\Actions\Display::loadEditor
+    + SMF\Actions\Display::loadEvents
+    + SMF\Actions\Display::loadPoll
+    + SMF\Actions\Display::markRead
+    + SMF\Actions\Display::prepareDisplayContext
+    + SMF\Actions\Display::preventPrefetch
+    + SMF\Actions\Display::setModerators
+    + SMF\Actions\Display::setOldTopicWarning
+    + SMF\Actions\Display::setPaginationAndLinks
+    + SMF\Actions\Display::setRobotNoIndex
+    + SMF\Actions\Display::setStart
+    + SMF\Actions\Display::setUnapprovedPostsMessage
+    + SMF\Actions\Display::setupTemplate
+    + SMF\Actions\Display::setupVerification
+  Old regex only:
+    - buildButtons
+    - buildRoute
+    - checkMovedMergedRedirect
+    - checkPrevNextRedirect
+    - execute
+    - getMessagesAndPosters
+    - getNotificationMode
+    - getWhoViewing
+    - incrementNumViews
+    - initDisplayContext
+    - loadEditor
+    - loadEvents
+    - loadPoll
+    - markRead
+    - prepareDisplayContext
+    - preventPrefetch
+    - setModerators
+    - setOldTopicWarning
+    - setPaginationAndLinks
+    - setRobotNoIndex
+    - setStart
+    - setUnapprovedPostsMessage
+    - setupTemplate
+    - setupVerification
+
+Sources\Actions\DisplayAdminFile.php
+  New regex only:
+    + SMF\Actions\DisplayAdminFile::canBeLogged
+    + SMF\Actions\DisplayAdminFile::execute
+  Old regex only:
+    - canBeLogged
+    - execute
+
+Sources\Actions\Feed.php
+  New regex only:
+    + SMF\Actions\Feed::__construct
+    + SMF\Actions\Feed::build
+    + SMF\Actions\Feed::buildRoute
+    + SMF\Actions\Feed::canBeLogged
+    + SMF\Actions\Feed::cdataParse
+    + SMF\Actions\Feed::checkEnabled
+    + SMF\Actions\Feed::dumpTags
+    + SMF\Actions\Feed::emit
+    + SMF\Actions\Feed::execute
+    + SMF\Actions\Feed::fixPossibleUrl
+    + SMF\Actions\Feed::getData
+    + SMF\Actions\Feed::getXmlMembers
+    + SMF\Actions\Feed::getXmlNews
+    + SMF\Actions\Feed::getXmlPMs
+    + SMF\Actions\Feed::getXmlPosts
+    + SMF\Actions\Feed::getXmlProfile
+    + SMF\Actions\Feed::getXmlRecent
+    + SMF\Actions\Feed::isAgreementAction
+    + SMF\Actions\Feed::parseRoute
+    + SMF\Actions\Feed::setFormat
+    + SMF\Actions\Feed::setMember
+    + SMF\Actions\Feed::setSubaction
+    + SMF\Actions\Feed::setlimit
+  Old regex only:
+    - __construct
+    - build
+    - buildRoute
+    - canBeLogged
+    - cdataParse
+    - checkEnabled
+    - dumpTags
+    - emit
+    - execute
+    - fixPossibleUrl
+    - getData
+    - getXmlMembers
+    - getXmlNews
+    - getXmlPMs
+    - getXmlPosts
+    - getXmlProfile
+    - getXmlRecent
+    - isAgreementAction
+    - parseRoute
+    - setFormat
+    - setMember
+    - setSubaction
+    - setlimit
+
+Sources\Actions\Groups.php
+  New regex only:
+    + SMF\Actions\Groups::__construct
+    + SMF\Actions\Groups::buildRoute
+    + SMF\Actions\Groups::execute
+    + SMF\Actions\Groups::index
+    + SMF\Actions\Groups::listMembergroupMembers_Href
+    + SMF\Actions\Groups::list_getMembergroups
+    + SMF\Actions\Groups::members
+    + SMF\Actions\Groups::parseRoute
+  Old regex only:
+    - __construct
+    - buildRoute
+    - execute
+    - index
+    - listMembergroupMembers_Href
+    - list_getMembergroups
+    - members
+    - parseRoute
+
+Sources\Actions\Help.php
+  New regex only:
+    + SMF\Actions\Help::__construct
+    + SMF\Actions\Help::execute
+    + SMF\Actions\Help::index
+    + SMF\Actions\Help::isRestrictedGuestAccessAllowed
+  Old regex only:
+    - __construct
+    - execute
+    - index
+    - isRestrictedGuestAccessAllowed
+
+Sources\Actions\HelpAdmin.php
+  New regex only:
+    + SMF\Actions\HelpAdmin::buildRoute
+    + SMF\Actions\HelpAdmin::canBeLogged
+    + SMF\Actions\HelpAdmin::execute
+    + SMF\Actions\HelpAdmin::isRestrictedGuestAccessAllowed
+    + SMF\Actions\HelpAdmin::isSimpleAction
+    + SMF\Actions\HelpAdmin::parseRoute
+  Old regex only:
+    - buildRoute
+    - canBeLogged
+    - execute
+    - isRestrictedGuestAccessAllowed
+    - isSimpleAction
+    - parseRoute
+
+Sources\Actions\JavaScriptModify.php
+  New regex only:
+    + SMF\Actions\JavaScriptModify::__construct
+    + SMF\Actions\JavaScriptModify::execute
+    + SMF\Actions\JavaScriptModify::getOutputType
+    + SMF\Actions\JavaScriptModify::isSimpleAction
+  Old regex only:
+    - __construct
+    - execute
+    - getOutputType
+    - isSimpleAction
+
+Sources\Actions\Like.php
+  New regex only:
+    + SMF\Actions\Like::__construct
+    + SMF\Actions\Like::canBeLogged
+    + SMF\Actions\Like::check
+    + SMF\Actions\Like::count
+    + SMF\Actions\Like::delete
+    + SMF\Actions\Like::execute
+    + SMF\Actions\Like::get
+    + SMF\Actions\Like::getOutputType
+    + SMF\Actions\Like::insert
+    + SMF\Actions\Like::isSimpleAction
+    + SMF\Actions\Like::like
+    + SMF\Actions\Like::respond
+    + SMF\Actions\Like::sendJsonReponse
+    + SMF\Actions\Like::view
+  Old regex only:
+    - __construct
+    - canBeLogged
+    - check
+    - count
+    - delete
+    - execute
+    - get
+    - getOutputType
+    - insert
+    - isSimpleAction
+    - like
+    - respond
+    - sendJsonReponse
+    - view
+
+Sources\Actions\Login2.php
+  New regex only:
+    + SMF\Actions\Login2::DoLogin
+    + SMF\Actions\Login2::__construct
+    + SMF\Actions\Login2::canShowInMaintenanceMode
+    + SMF\Actions\Login2::checkActivation
+    + SMF\Actions\Login2::checkAjax
+    + SMF\Actions\Login2::checkCookie
+    + SMF\Actions\Login2::checkPasswordFallbacks
+    + SMF\Actions\Login2::execute
+    + SMF\Actions\Login2::isAgreementAction
+    + SMF\Actions\Login2::isRestrictedGuestAccessAllowed
+    + SMF\Actions\Login2::isSimpleAction
+    + SMF\Actions\Login2::main
+    + SMF\Actions\Login2::phpBB3_password_check
+    + SMF\Actions\Login2::updateSalt
+    + SMF\Actions\Login2::validateInput
+    + SMF\Actions\Login2::validatePasswordFlood
+  Old regex only:
+    - DoLogin
+    - __construct
+    - canShowInMaintenanceMode
+    - checkActivation
+    - checkAjax
+    - checkCookie
+    - checkPasswordFallbacks
+    - execute
+    - isAgreementAction
+    - isRestrictedGuestAccessAllowed
+    - isSimpleAction
+    - main
+    - updateSalt
+    - validateInput
+    - validatePasswordFlood
+
+Sources\Actions\MarkRead.php
+  New regex only:
+    + SMF\Actions\MarkRead::__construct
+    + SMF\Actions\MarkRead::all
+    + SMF\Actions\MarkRead::board
+    + SMF\Actions\MarkRead::buildRoute
+    + SMF\Actions\MarkRead::execute
+    + SMF\Actions\MarkRead::parseRoute
+    + SMF\Actions\MarkRead::replies
+    + SMF\Actions\MarkRead::topic
+  Old regex only:
+    - __construct
+    - all
+    - board
+    - buildRoute
+    - execute
+    - parseRoute
+    - replies
+    - topic
+
+Sources\Actions\Memberlist.php
+  New regex only:
+    + SMF\Actions\Memberlist::__construct
+    + SMF\Actions\Memberlist::all
+    + SMF\Actions\Memberlist::buildRoute
+    + SMF\Actions\Memberlist::execute
+    + SMF\Actions\Memberlist::getCustFields
+    + SMF\Actions\Memberlist::parseRoute
+    + SMF\Actions\Memberlist::printRows
+    + SMF\Actions\Memberlist::search
+  Old regex only:
+    - __construct
+    - all
+    - buildRoute
+    - execute
+    - getCustFields
+    - parseRoute
+    - printRows
+    - search
+
+Sources\Actions\MessageIndex.php
+  New regex only:
+    + SMF\Actions\MessageIndex::buildButtons
+    + SMF\Actions\MessageIndex::buildChildBoardIndex
+    + SMF\Actions\MessageIndex::buildQuickMod
+    + SMF\Actions\MessageIndex::buildRoute
+    + SMF\Actions\MessageIndex::buildTopicContext
+    + SMF\Actions\MessageIndex::buildTopicList
+    + SMF\Actions\MessageIndex::checkRedirect
+    + SMF\Actions\MessageIndex::execute
+    + SMF\Actions\MessageIndex::getBoardList
+    + SMF\Actions\MessageIndex::getWhoViewing
+    + SMF\Actions\MessageIndex::markViewed
+    + SMF\Actions\MessageIndex::preventPrefetch
+    + SMF\Actions\MessageIndex::setModerators
+    + SMF\Actions\MessageIndex::setPaginationAndLinks
+    + SMF\Actions\MessageIndex::setRobotNoIndex
+    + SMF\Actions\MessageIndex::setSortMethod
+    + SMF\Actions\MessageIndex::setUnapprovedPostsMessage
+    + SMF\Actions\MessageIndex::setupTemplate
+  Old regex only:
+    - buildButtons
+    - buildChildBoardIndex
+    - buildQuickMod
+    - buildRoute
+    - buildTopicContext
+    - buildTopicList
+    - checkRedirect
+    - execute
+    - getBoardList
+    - getWhoViewing
+    - markViewed
+    - preventPrefetch
+    - setModerators
+    - setPaginationAndLinks
+    - setRobotNoIndex
+    - setSortMethod
+    - setUnapprovedPostsMessage
+    - setupTemplate
+
+Sources\Actions\Moderation\Main.php
+  New regex only:
+    + SMF\Actions\Moderation\Main::buildRoute
+    + SMF\Actions\Moderation\Main::checkAccessPermissions
+    + SMF\Actions\Moderation\Main::createMenu
+    + SMF\Actions\Moderation\Main::execute
+    + SMF\Actions\Moderation\Main::parseRoute
+    + SMF\Actions\Moderation\Main::setModerationAreas
+  Old regex only:
+    - buildRoute
+    - checkAccessPermissions
+    - createMenu
+    - execute
+    - parseRoute
+    - setModerationAreas
+
+Sources\Actions\MsgDelete.php
+  New regex only:
+    + SMF\Actions\MsgDelete::buildRoute
+    + SMF\Actions\MsgDelete::execute
+    + SMF\Actions\MsgDelete::parseRoute
+  Old regex only:
+    - buildRoute
+    - execute
+    - parseRoute
+
+Sources\Actions\Notify.php
+  New regex only:
+    + SMF\Actions\Notify::askTemplateData
+    + SMF\Actions\Notify::setId
+  Old regex only:
+    - SMF\Actions\Notify::setAlertPref
+    - SMF\Actions\Notify::setMode
+
+Sources\Actions\PersonalMessage.php
+  New regex only:
+    + SMF\Actions\PersonalMessage::__construct
+    + SMF\Actions\PersonalMessage::applyActions
+    + SMF\Actions\PersonalMessage::buildLimitBar
+    + SMF\Actions\PersonalMessage::buildRoute
+    + SMF\Actions\PersonalMessage::canBeLogged
+    + SMF\Actions\PersonalMessage::createMenu
+    + SMF\Actions\PersonalMessage::drafts
+    + SMF\Actions\PersonalMessage::execute
+    + SMF\Actions\PersonalMessage::getOutputType
+    + SMF\Actions\PersonalMessage::isAgreementAction
+    + SMF\Actions\PersonalMessage::isSimpleAction
+    + SMF\Actions\PersonalMessage::labels
+    + SMF\Actions\PersonalMessage::parseRoute
+    + SMF\Actions\PersonalMessage::popup
+    + SMF\Actions\PersonalMessage::prune
+    + SMF\Actions\PersonalMessage::removeAll
+    + SMF\Actions\PersonalMessage::report
+    + SMF\Actions\PersonalMessage::rules
+    + SMF\Actions\PersonalMessage::search
+    + SMF\Actions\PersonalMessage::search2
+    + SMF\Actions\PersonalMessage::send
+    + SMF\Actions\PersonalMessage::send2
+    + SMF\Actions\PersonalMessage::settings
+    + SMF\Actions\PersonalMessage::show
+  Old regex only:
+    - __construct
+    - applyActions
+    - buildLimitBar
+    - buildRoute
+    - canBeLogged
+    - createMenu
+    - drafts
+    - execute
+    - getOutputType
+    - isAgreementAction
+    - isSimpleAction
+    - labels
+    - parseRoute
+    - popup
+    - prune
+    - removeAll
+    - report
+    - rules
+    - search
+    - search2
+    - send
+    - send2
+    - settings
+    - show
+
+Sources\Actions\PollEdit.php
+  New regex only:
+    + SMF\Actions\PollEdit::execute
+  Old regex only:
+    - execute
+
+Sources\Actions\PollEdit2.php
+  New regex only:
+    + SMF\Actions\PollEdit2::execute
+  Old regex only:
+    - execute
+
+Sources\Actions\PollLock.php
+  New regex only:
+    + SMF\Actions\PollLock::execute
+  Old regex only:
+    - execute
+
+Sources\Actions\PollRemove.php
+  New regex only:
+    + SMF\Actions\PollRemove::execute
+  Old regex only:
+    - execute
+
+Sources\Actions\PollVote.php
+  New regex only:
+    + SMF\Actions\PollVote::execute
+  Old regex only:
+    - execute
+
+Sources\Actions\Post.php
+  New regex only:
+    + SMF\Actions\Post::__construct
+    + SMF\Actions\Post::buildRoute
+    + SMF\Actions\Post::checkForErrors
+    + SMF\Actions\Post::checkForNewReplies
+    + SMF\Actions\Post::execute
+    + SMF\Actions\Post::getTopicSummary
+    + SMF\Actions\Post::initiateEvent
+    + SMF\Actions\Post::initiateNewTopic
+    + SMF\Actions\Post::initiatePoll
+    + SMF\Actions\Post::initiateReply
+    + SMF\Actions\Post::loadDrafts
+    + SMF\Actions\Post::loadEditor
+    + SMF\Actions\Post::loadNotifyPrefs
+    + SMF\Actions\Post::loadTopic
+    + SMF\Actions\Post::parseRoute
+    + SMF\Actions\Post::setBoards
+    + SMF\Actions\Post::setLinktree
+    + SMF\Actions\Post::setMessageIcons
+    + SMF\Actions\Post::setPageTitle
+    + SMF\Actions\Post::setResponsePrefix
+    + SMF\Actions\Post::setupPostingFields
+    + SMF\Actions\Post::show
+    + SMF\Actions\Post::showAttachments
+    + SMF\Actions\Post::showEdit
+    + SMF\Actions\Post::showNew
+    + SMF\Actions\Post::showPreview
+    + SMF\Actions\Post::showVerification
+  Old regex only:
+    - __construct
+    - buildRoute
+    - checkForErrors
+    - checkForNewReplies
+    - execute
+    - getTopicSummary
+    - initiateEvent
+    - initiateNewTopic
+    - initiatePoll
+    - initiateReply
+    - loadDrafts
+    - loadEditor
+    - loadNotifyPrefs
+    - loadTopic
+    - parseRoute
+    - setBoards
+    - setLinktree
+    - setMessageIcons
+    - setPageTitle
+    - setResponsePrefix
+    - setupPostingFields
+    - show
+    - showAttachments
+    - showEdit
+    - showNew
+    - showPreview
+    - showVerification
+
+Sources\Actions\Profile\Main.php
+  New regex only:
+    + SMF\Actions\Profile\Main::__construct
+    + SMF\Actions\Profile\Main::buildRoute
+    + SMF\Actions\Profile\Main::canBeLogged
+    + SMF\Actions\Profile\Main::createMenu
+    + SMF\Actions\Profile\Main::execute
+    + SMF\Actions\Profile\Main::getOutputType
+    + SMF\Actions\Profile\Main::isAgreementAction
+    + SMF\Actions\Profile\Main::isSimpleAction
+    + SMF\Actions\Profile\Main::parseRoute
+    + SMF\Actions\Profile\Main::securityChecks
+    + SMF\Actions\Profile\Main::setProfileAreas
+  Old regex only:
+    - __construct
+    - buildRoute
+    - canBeLogged
+    - createMenu
+    - execute
+    - getOutputType
+    - isAgreementAction
+    - isSimpleAction
+    - parseRoute
+    - securityChecks
+    - setProfileAreas
+
+Sources\Actions\QuickModeration.php
+  New regex only:
+    + SMF\Actions\QuickModeration::__construct
+    + SMF\Actions\QuickModeration::doApprove
+    + SMF\Actions\QuickModeration::doLock
+    + SMF\Actions\QuickModeration::doMarkRead
+    + SMF\Actions\QuickModeration::doMerge
+    + SMF\Actions\QuickModeration::doMove
+    + SMF\Actions\QuickModeration::doRemove
+    + SMF\Actions\QuickModeration::doRestore
+    + SMF\Actions\QuickModeration::doSticky
+    + SMF\Actions\QuickModeration::execute
+    + SMF\Actions\QuickModeration::getActions
+    + SMF\Actions\QuickModeration::setPossibleActions
+    + SMF\Actions\QuickModeration::setRequestActions
+    + SMF\Actions\QuickModeration::setTopicActions
+  Old regex only:
+    - __construct
+    - doApprove
+    - doLock
+    - doMarkRead
+    - doMerge
+    - doMove
+    - doRemove
+    - doRestore
+    - doSticky
+    - execute
+    - getActions
+    - setPossibleActions
+    - setRequestActions
+    - setTopicActions
+
+Sources\Actions\QuickModerationInTopic.php
+  New regex only:
+    + SMF\Actions\QuickModerationInTopic::__construct
+    + SMF\Actions\QuickModerationInTopic::delete
+    + SMF\Actions\QuickModerationInTopic::execute
+    + SMF\Actions\QuickModerationInTopic::restore
+    + SMF\Actions\QuickModerationInTopic::split
+  Old regex only:
+    - __construct
+    - delete
+    - execute
+    - restore
+    - split
+
+Sources\Actions\QuoteFast.php
+  New regex only:
+    + SMF\Actions\QuoteFast::execute
+    + SMF\Actions\QuoteFast::getOutputType
+  Old regex only:
+    - execute
+    - getOutputType
+
+Sources\Actions\Recent.php
+  New regex only:
+    + SMF\Actions\Recent::__construct
+    + SMF\Actions\Recent::buildQuickButtons
+    + SMF\Actions\Recent::doPermissions
+    + SMF\Actions\Recent::execute
+    + SMF\Actions\Recent::getBoards
+    + SMF\Actions\Recent::getCatName
+    + SMF\Actions\Recent::getLastPost
+    + SMF\Actions\Recent::getMessages
+    + SMF\Actions\Recent::getMsgIds
+    + SMF\Actions\Recent::setPaginationAndLinks
+  Old regex only:
+    - __construct
+    - buildQuickButtons
+    - doPermissions
+    - execute
+    - getBoards
+    - getCatName
+    - getLastPost
+    - getMessages
+    - getMsgIds
+    - setPaginationAndLinks
+
+Sources\Actions\Register.php
+  New regex only:
+    + SMF\Actions\Register::__construct
+    + SMF\Actions\Register::checkUsername
+    + SMF\Actions\Register::execute
+    + SMF\Actions\Register::getOutputType
+    + SMF\Actions\Register::isRestrictedGuestAccessAllowed
+    + SMF\Actions\Register::isSimpleAction
+    + SMF\Actions\Register::show
+  Old regex only:
+    - __construct
+    - checkUsername
+    - execute
+    - getOutputType
+    - isRestrictedGuestAccessAllowed
+    - isSimpleAction
+    - show
+
+Sources\Actions\Reminder.php
+  New regex only:
+    + SMF\Actions\Reminder::__construct
+    + SMF\Actions\Reminder::execute
+    + SMF\Actions\Reminder::isRestrictedGuestAccessAllowed
+    + SMF\Actions\Reminder::loadMember
+    + SMF\Actions\Reminder::main
+    + SMF\Actions\Reminder::pickType
+    + SMF\Actions\Reminder::secretAnswer2
+    + SMF\Actions\Reminder::secretAnswerInput
+    + SMF\Actions\Reminder::setPassword
+    + SMF\Actions\Reminder::setPassword2
+  Old regex only:
+    - __construct
+    - execute
+    - isRestrictedGuestAccessAllowed
+    - loadMember
+    - main
+    - secretAnswer2
+    - secretAnswerInput
+    - setPassword
+    - setPassword2
+
+Sources\Actions\ReportToMod.php
+  New regex only:
+    + SMF\Actions\ReportToMod::__construct
+    + SMF\Actions\ReportToMod::execute
+    + SMF\Actions\ReportToMod::reportMember
+    + SMF\Actions\ReportToMod::reportMsg
+    + SMF\Actions\ReportToMod::setPreview
+    + SMF\Actions\ReportToMod::show
+    + SMF\Actions\ReportToMod::submit
+  Old regex only:
+    - __construct
+    - execute
+    - reportMember
+    - reportMsg
+    - setPreview
+    - show
+    - submit
+
+Sources\Actions\RequestMembers.php
+  New regex only:
+    + SMF\Actions\RequestMembers::__construct
+    + SMF\Actions\RequestMembers::canBeLogged
+    + SMF\Actions\RequestMembers::execute
+  Old regex only:
+    - __construct
+    - canBeLogged
+    - execute
+
+Sources\Actions\Search.php
+  New regex only:
+    + SMF\Actions\Search::execute
+  Old regex only:
+    - execute
+
+Sources\Actions\Search2.php
+  New regex only:
+    + SMF\Actions\Search2::buildRoute
+    + SMF\Actions\Search2::checkLoadAverage
+    + SMF\Actions\Search2::errorCheck
+    + SMF\Actions\Search2::execute
+    + SMF\Actions\Search2::getPosters
+    + SMF\Actions\Search2::initSearchContext
+    + SMF\Actions\Search2::parseRoute
+    + SMF\Actions\Search2::prepareSearchContext
+    + SMF\Actions\Search2::preventPrefetch
+    + SMF\Actions\Search2::redirectToMemberSearch
+    + SMF\Actions\Search2::setupTemplate
+    + SMF\Actions\Search2::setupVerification
+    + SMF\Actions\Search2::spamCheck
+  Old regex only:
+    - buildRoute
+    - checkLoadAverage
+    - errorCheck
+    - execute
+    - getPosters
+    - initSearchContext
+    - parseRoute
+    - prepareSearchContext
+    - preventPrefetch
+    - redirectToMemberSearch
+    - setupTemplate
+    - setupVerification
+    - spamCheck
+
+Sources\Actions\SendActivation.php
+  New regex only:
+    + SMF\Actions\SendActivation::execute
+  Old regex only:
+    - execute
+
+Sources\Actions\ShowMsgHistory.php
+  New regex only:
+    + SMF\Actions\ShowMsgHistory::buildRoute
+    + SMF\Actions\ShowMsgHistory::canBeLogged
+    + SMF\Actions\ShowMsgHistory::execute
+    + SMF\Actions\ShowMsgHistory::parseRoute
+  Old regex only:
+    - buildRoute
+    - canBeLogged
+    - execute
+    - parseRoute
+
+Sources\Actions\SmStats.php
+  New regex only:
+    + SMF\Actions\SmStats::canBeLogged
+    + SMF\Actions\SmStats::execute
+    + SMF\Actions\SmStats::isRestrictedGuestAccessAllowed
+  Old regex only:
+    - canBeLogged
+    - execute
+    - isRestrictedGuestAccessAllowed
+
+Sources\Actions\Stats.php
+  New regex only:
+    + SMF\Actions\Stats::execute
+    + SMF\Actions\Stats::getDailyStats
+    + SMF\Actions\Stats::getOutputType
+    + SMF\Actions\Stats::isSimpleAction
+  Old regex only:
+    - execute
+    - getDailyStats
+    - getOutputType
+    - isSimpleAction
+
+Sources\Actions\ThemeChooser.php
+  New regex only:
+    + SMF\Actions\ThemeChooser::buildRoute
+    + SMF\Actions\ThemeChooser::canChooseTheme
+    + SMF\Actions\ThemeChooser::execute
+  Old regex only:
+    - buildRoute
+    - canChooseTheme
+    - execute
+
+Sources\Actions\ThemeSetOption.php
+  New regex only:
+    + SMF\Actions\ThemeSetOption::canBeLogged
+    + SMF\Actions\ThemeSetOption::execute
+  Old regex only:
+    - canBeLogged
+    - execute
+
+Sources\Actions\TopicLock.php
+  New regex only:
+    + SMF\Actions\TopicLock::execute
+  Old regex only:
+    - execute
+
+Sources\Actions\TopicMerge.php
+  New regex only:
+    + SMF\Actions\TopicMerge::__construct
+    + SMF\Actions\TopicMerge::buildRoute
+    + SMF\Actions\TopicMerge::done
+    + SMF\Actions\TopicMerge::execute
+    + SMF\Actions\TopicMerge::getMergeBoards
+    + SMF\Actions\TopicMerge::getTopicData
+    + SMF\Actions\TopicMerge::getTopics
+    + SMF\Actions\TopicMerge::index
+    + SMF\Actions\TopicMerge::initOptionsAndMerge
+    + SMF\Actions\TopicMerge::initiate
+    + SMF\Actions\TopicMerge::merge
+    + SMF\Actions\TopicMerge::options
+    + SMF\Actions\TopicMerge::parseRoute
+  Old regex only:
+    - __construct
+    - buildRoute
+    - done
+    - execute
+    - getMergeBoards
+    - getTopicData
+    - getTopics
+    - index
+    - initOptionsAndMerge
+    - initiate
+    - merge
+    - options
+    - parseRoute
+
+Sources\Actions\TopicMove.php
+  New regex only:
+    + SMF\Actions\TopicMove::execute
+  Old regex only:
+    - execute
+
+Sources\Actions\TopicMove2.php
+  New regex only:
+    + SMF\Actions\TopicMove2::execute
+    + SMF\Actions\TopicMove2::moveTopicConcurrence
+  Old regex only:
+    - execute
+    - moveTopicConcurrence
+
+Sources\Actions\TopicPrint.php
+  New regex only:
+    + SMF\Actions\TopicPrint::execute
+    + SMF\Actions\TopicPrint::isSimpleAction
+  Old regex only:
+    - execute
+    - isSimpleAction
+
+Sources\Actions\TopicRemove.php
+  New regex only:
+    + SMF\Actions\TopicRemove::execute
+    + SMF\Actions\TopicRemove::old
+    + SMF\Actions\TopicRemove::removeDeleteConcurrence
+  Old regex only:
+    - execute
+    - old
+    - removeDeleteConcurrence
+
+Sources\Actions\TopicRestore.php
+  New regex only:
+    + SMF\Actions\TopicRestore::execute
+    + SMF\Actions\TopicRestore::mergePosts
+  Old regex only:
+    - execute
+    - mergePosts
+
+Sources\Actions\TopicSplit.php
+  New regex only:
+    + SMF\Actions\TopicSplit::__construct
+    + SMF\Actions\TopicSplit::execute
+    + SMF\Actions\TopicSplit::getOutputType
+    + SMF\Actions\TopicSplit::index
+    + SMF\Actions\TopicSplit::isSimpleAction
+    + SMF\Actions\TopicSplit::select
+    + SMF\Actions\TopicSplit::split
+    + SMF\Actions\TopicSplit::splitSelection
+    + SMF\Actions\TopicSplit::splitTopic
+  Old regex only:
+    - __construct
+    - execute
+    - getOutputType
+    - isSimpleAction
+    - select
+    - split
+    - splitSelection
+    - splitTopic
+
+Sources\Actions\TopicSticky.php
+  New regex only:
+    + SMF\Actions\TopicSticky::execute
+  Old regex only:
+    - execute
+
+Sources\Actions\TrackIP.php
+  New regex only:
+    + SMF\Actions\TrackIP::__construct
+    + SMF\Actions\TrackIP::execute
+    + SMF\Actions\TrackIP::list_getIPMessageCount
+    + SMF\Actions\TrackIP::list_getIPMessages
+  Old regex only:
+    - __construct
+    - execute
+    - list_getIPMessageCount
+    - list_getIPMessages
+
+Sources\Actions\Unknown.php
+  New regex only:
+    + SMF\Actions\Unknown::canBeLogged
+    + SMF\Actions\Unknown::execute
+  Old regex only:
+    - canBeLogged
+    - execute
+
+Sources\Actions\Unread.php
+  New regex only:
+    + SMF\Actions\Unread::buildButtons
+    + SMF\Actions\Unread::execute
+    + SMF\Actions\Unread::finalizeSelects
+    + SMF\Actions\Unread::getBoards
+    + SMF\Actions\Unread::getCatName
+    + SMF\Actions\Unread::getEarliestMsg
+    + SMF\Actions\Unread::getTopicRequestWithTempTable
+    + SMF\Actions\Unread::getTopicRequestWithoutTempTable
+    + SMF\Actions\Unread::getTopics
+    + SMF\Actions\Unread::init
+    + SMF\Actions\Unread::makeTempTable
+    + SMF\Actions\Unread::setNoTopics
+    + SMF\Actions\Unread::setPaginationAndLinks
+    + SMF\Actions\Unread::setSortMethod
+    + SMF\Actions\Unread::setTopicRequest
+  Old regex only:
+    - buildButtons
+    - execute
+    - finalizeSelects
+    - getBoards
+    - getCatName
+    - getEarliestMsg
+    - getTopicRequestWithTempTable
+    - getTopicRequestWithoutTempTable
+    - getTopics
+    - init
+    - makeTempTable
+    - setNoTopics
+    - setPaginationAndLinks
+    - setSortMethod
+    - setTopicRequest
+
+Sources\Actions\VerificationCode.php
+  New regex only:
+    + SMF\Actions\VerificationCode::__construct
+    + SMF\Actions\VerificationCode::canBeLogged
+    + SMF\Actions\VerificationCode::createWaveFile
+    + SMF\Actions\VerificationCode::execute
+    + SMF\Actions\VerificationCode::isRestrictedGuestAccessAllowed
+    + SMF\Actions\VerificationCode::showCodeImage
+    + SMF\Actions\VerificationCode::showLetterImage
+  Old regex only:
+    - __construct
+    - canBeLogged
+    - createWaveFile
+    - execute
+    - isRestrictedGuestAccessAllowed
+    - showCodeImage
+    - showLetterImage
+
+Sources\Actions\ViewQuery.php
+  New regex only:
+    + SMF\Actions\ViewQuery::canBeLogged
+    + SMF\Actions\ViewQuery::execute
+    + SMF\Actions\ViewQuery::isSimpleAction
+  Old regex only:
+    - canBeLogged
+    - execute
+    - isSimpleAction
+
+Sources\Actions\Who.php
+  New regex only:
+    + SMF\Actions\Who::determineActions
+    + SMF\Actions\Who::execute
+  Old regex only:
+    - determineActions
+    - execute
+
+Sources\Actions\XmlHttp.php
+  New regex only:
+    + SMF\Actions\XmlHttp::__construct
+    + SMF\Actions\XmlHttp::canBeLogged
+    + SMF\Actions\XmlHttp::execute
+    + SMF\Actions\XmlHttp::getOutputType
+    + SMF\Actions\XmlHttp::isAgreementAction
+    + SMF\Actions\XmlHttp::isSimpleAction
+    + SMF\Actions\XmlHttp::jumpTo
+    + SMF\Actions\XmlHttp::messageIcons
+    + SMF\Actions\XmlHttp::newsletterpreview
+    + SMF\Actions\XmlHttp::newspreview
+    + SMF\Actions\XmlHttp::previews
+    + SMF\Actions\XmlHttp::sig_preview
+    + SMF\Actions\XmlHttp::warning_preview
+  Old regex only:
+    - __construct
+    - canBeLogged
+    - execute
+    - getOutputType
+    - isAgreementAction
+    - isSimpleAction
+    - jumpTo
+    - messageIcons
+    - newsletterpreview
+    - newspreview
+    - sig_preview
+    - warning_preview
+
+Sources\Alert.php
+  New regex only:
+    + SMF\Alert::__construct
+    + SMF\Alert::__set
+    + SMF\Alert::checkMsgAccess
+    + SMF\Alert::checkTopicAccess
+    + SMF\Alert::count
+    + SMF\Alert::create
+    + SMF\Alert::createBatch
+    + SMF\Alert::delete
+    + SMF\Alert::deleteInvisible
+    + SMF\Alert::deleteWhere
+    + SMF\Alert::fetch
+    + SMF\Alert::finalizeLinkFormats
+    + SMF\Alert::format
+    + SMF\Alert::load
+    + SMF\Alert::loadForMember
+    + SMF\Alert::mark
+    + SMF\Alert::markAll
+    + SMF\Alert::markWhere
+    + SMF\Alert::purge
+    + SMF\Alert::queryData
+    + SMF\Alert::resetLinkFormats
+    + SMF\Alert::save
+    + SMF\Alert::setIcon
+    + SMF\Alert::setQb
+  Old regex only:
+    - __construct
+    - __set
+    - checkMsgAccess
+    - checkTopicAccess
+    - count
+    - create
+    - createBatch
+    - delete
+    - deleteInvisible
+    - deleteWhere
+    - fetch
+    - finalizeLinkFormats
+    - format
+    - load
+    - loadForMember
+    - mark
+    - markAll
+    - markWhere
+    - purge
+    - queryData
+    - resetLinkFormats
+    - save
+    - setIcon
+    - setQb
+
+Sources\Attachment.php
+  New regex only:
+    + SMF\Attachment::__construct
+    + SMF\Attachment::__set
+    + SMF\Attachment::approve
+    + SMF\Attachment::assign
+    + SMF\Attachment::automanageBySpace
+    + SMF\Attachment::automanageCheckDirectory
+    + SMF\Attachment::automanageCreateDirectory
+    + SMF\Attachment::check
+    + SMF\Attachment::create
+    + SMF\Attachment::createHash
+    + SMF\Attachment::getAttachMsgInfo
+    + SMF\Attachment::getDirectoryTreeElements
+    + SMF\Attachment::getFilePath
+    + SMF\Attachment::initDir
+    + SMF\Attachment::isPathAllowed
+    + SMF\Attachment::load
+    + SMF\Attachment::loadAttachmentContext
+    + SMF\Attachment::loadByMember
+    + SMF\Attachment::loadByMsg
+    + SMF\Attachment::parseAttachBBC
+    + SMF\Attachment::prepareByMsg
+    + SMF\Attachment::process
+    + SMF\Attachment::queryData
+    + SMF\Attachment::remove
+    + SMF\Attachment::setFileProperties
+    + SMF\Attachment::setPath
+  Old regex only:
+    - __construct
+    - __set
+    - approve
+    - assign
+    - automanageCreateDirectory
+    - check
+    - create
+    - createHash
+    - getAttachMsgInfo
+    - getDirectoryTreeElements
+    - getFilePath
+    - initDir
+    - isPathAllowed
+    - load
+    - loadAttachmentContext
+    - loadByMember
+    - loadByMsg
+    - parseAttachBBC
+    - prepareByMsg
+    - process
+    - setFileProperties
+    - setPath
+
+Sources\BBCode\BBCode.php
+  New regex only:
+    + SMF\BBCode\BBCode::validate
+  Old regex only:
+    - validate
+
+Sources\Board.php
+  New regex only:
+    + SMF\Board::__construct
+    + SMF\Board::__set
+    + SMF\Board::blockOnError
+    + SMF\Board::buildLinkTree
+    + SMF\Board::buildRoute
+    + SMF\Board::checkAccess
+    + SMF\Board::create
+    + SMF\Board::delete
+    + SMF\Board::fixChildren
+    + SMF\Board::getAll
+    + SMF\Board::getModeratorGroups
+    + SMF\Board::getModerators
+    + SMF\Board::getMsgMemberID
+    + SMF\Board::getOriginalGroups
+    + SMF\Board::getParents
+    + SMF\Board::getUserVisibleBoards
+    + SMF\Board::init
+    + SMF\Board::isChildOf
+    + SMF\Board::load
+    + SMF\Board::loadBoardInfo
+    + SMF\Board::markBoardsRead
+    + SMF\Board::modify
+    + SMF\Board::move
+    + SMF\Board::parseDescription
+    + SMF\Board::parseRoute
+    + SMF\Board::queryData
+    + SMF\Board::reorder
+    + SMF\Board::save
+    + SMF\Board::saveExisting
+    + SMF\Board::saveModerators
+    + SMF\Board::saveNew
+    + SMF\Board::saveViewPermissions
+    + SMF\Board::sort
+    + SMF\Board::unload
+    + SMF\Board::unparseDescription
+  Old regex only:
+    - __construct
+    - __set
+    - blockOnError
+    - buildLinkTree
+    - buildRoute
+    - checkAccess
+    - create
+    - delete
+    - fixChildren
+    - getAll
+    - getModeratorGroups
+    - getModerators
+    - getMsgMemberID
+    - getOriginalGroups
+    - getParents
+    - getUserVisibleBoards
+    - isChildOf
+    - load
+    - loadBoardInfo
+    - markBoardsRead
+    - modify
+    - parseDescription
+    - parseRoute
+    - reorder
+    - save
+    - saveExisting
+    - saveModerators
+    - saveNew
+    - saveViewPermissions
+    - sort
+    - unload
+    - unparseDescription
+
+Sources\Calendar\Birthday.php
+  New regex only:
+    + SMF\Calendar\Birthday::get
+    + SMF\Calendar\Birthday::getOccurrencesInRange
+    + SMF\Calendar\Birthday::queryData
+
+Sources\Calendar\Event.php
+  New regex only:
+    + SMF\Calendar\Event::__construct
+    + SMF\Calendar\Event::__get
+    + SMF\Calendar\Event::__isset
+    + SMF\Calendar\Event::__set
+    + SMF\Calendar\Event::addOccurrence
+    + SMF\Calendar\Event::changeUntil
+    + SMF\Calendar\Event::constructFromICal
+    + SMF\Calendar\Event::create
+    + SMF\Calendar\Event::createOccurrence
+    + SMF\Calendar\Event::createRecurrenceIterator
+    + SMF\Calendar\Event::export
+    + SMF\Calendar\Event::foldICalLine
+    + SMF\Calendar\Event::get
+    + SMF\Calendar\Event::getAllVisibleOccurrences
+    + SMF\Calendar\Event::getFirstOccurrence
+    + SMF\Calendar\Event::getLastOccurrence
+    + SMF\Calendar\Event::getOccurrence
+    + SMF\Calendar\Event::getOccurrencesInRange
+    + SMF\Calendar\Event::getRecurrenceEnd
+    + SMF\Calendar\Event::getUpcomingOccurrence
+    + SMF\Calendar\Event::handleSpecialRRule
+    + SMF\Calendar\Event::import
+    + SMF\Calendar\Event::load
+    + SMF\Calendar\Event::modify
+    + SMF\Calendar\Event::queryData
+    + SMF\Calendar\Event::remove
+    + SMF\Calendar\Event::removeOccurrence
+    + SMF\Calendar\Event::save
+    + SMF\Calendar\Event::setRequestedRDatesAndExDates
+    + SMF\Calendar\Event::setRequestedRRule
+    + SMF\Calendar\Event::setRequestedStartAndDuration
+    + SMF\Calendar\Event::standardizeEventOptions
+  Old regex only:
+    - __construct
+    - __get
+    - __isset
+    - __set
+    - addOccurrence
+    - changeUntil
+    - constructFromICal
+    - create
+    - createOccurrence
+    - createRecurrenceIterator
+    - export
+    - foldICalLine
+    - getFirstOccurrence
+    - getLastOccurrence
+    - getOccurrence
+    - getRecurrenceEnd
+    - getUpcomingOccurrence
+    - handleSpecialRRule
+    - import
+    - load
+    - modify
+    - remove
+    - removeOccurrence
+    - save
+    - setRequestedRDatesAndExDates
+    - setRequestedRRule
+    - setRequestedStartAndDuration
+    - standardizeEventOptions
+
+Sources\Calendar\EventAdjustment.php
+  New regex only:
+    + SMF\Calendar\EventAdjustment::__construct
+
+Sources\Calendar\EventOccurrence.php
+  New regex only:
+    + SMF\Calendar\EventOccurrence::__construct
+    + SMF\Calendar\EventOccurrence::__get
+    + SMF\Calendar\EventOccurrence::__isset
+    + SMF\Calendar\EventOccurrence::__set
+    + SMF\Calendar\EventOccurrence::export
+    + SMF\Calendar\EventOccurrence::fixTimezone
+    + SMF\Calendar\EventOccurrence::getParentEvent
+    + SMF\Calendar\EventOccurrence::modify
+    + SMF\Calendar\EventOccurrence::remove
+    + SMF\Calendar\EventOccurrence::save
+  Old regex only:
+    - __construct
+    - __get
+    - __isset
+    - __set
+    - export
+    - fixTimezone
+    - getParentEvent
+    - modify
+    - remove
+    - save
+
+Sources\Calendar\Holiday.php
+  New regex only:
+    + SMF\Calendar\Holiday::easter
+    + SMF\Calendar\Holiday::get
+    + SMF\Calendar\Holiday::getOccurrencesInRange
+
+Sources\Calendar\RecurrenceIterator.php
+  New regex only:
+    + SMF\Calendar\RecurrenceIterator::__construct
+    + SMF\Calendar\RecurrenceIterator::add
+    + SMF\Calendar\RecurrenceIterator::calculate
+    + SMF\Calendar\RecurrenceIterator::calculateWeekNum
+    + SMF\Calendar\RecurrenceIterator::current
+    + SMF\Calendar\RecurrenceIterator::dateOccurs
+    + SMF\Calendar\RecurrenceIterator::end
+    + SMF\Calendar\RecurrenceIterator::expand
+    + SMF\Calendar\RecurrenceIterator::expandMonthByDay
+    + SMF\Calendar\RecurrenceIterator::expandYearByDay
+    + SMF\Calendar\RecurrenceIterator::getDtStart
+    + SMF\Calendar\RecurrenceIterator::getExDates
+    + SMF\Calendar\RecurrenceIterator::getFrequencyInterval
+    + SMF\Calendar\RecurrenceIterator::getNext
+    + SMF\Calendar\RecurrenceIterator::getPrev
+    + SMF\Calendar\RecurrenceIterator::getRDates
+    + SMF\Calendar\RecurrenceIterator::getRRule
+    + SMF\Calendar\RecurrenceIterator::getRRuleOccurrences
+    + SMF\Calendar\RecurrenceIterator::jumpToVisible
+    + SMF\Calendar\RecurrenceIterator::key
+    + SMF\Calendar\RecurrenceIterator::limit
+    + SMF\Calendar\RecurrenceIterator::limitBySetPos
+    + SMF\Calendar\RecurrenceIterator::next
+    + SMF\Calendar\RecurrenceIterator::nextInterval
+    + SMF\Calendar\RecurrenceIterator::prev
+    + SMF\Calendar\RecurrenceIterator::record
+    + SMF\Calendar\RecurrenceIterator::remove
+    + SMF\Calendar\RecurrenceIterator::rewind
+    + SMF\Calendar\RecurrenceIterator::search
+    + SMF\Calendar\RecurrenceIterator::setFrequencyInterval
+    + SMF\Calendar\RecurrenceIterator::setKey
+    + SMF\Calendar\RecurrenceIterator::sortWeekdays
+    + SMF\Calendar\RecurrenceIterator::valid
+  Old regex only:
+    - add
+    - calculate
+    - calculateWeekNum
+    - dateOccurs
+    - end
+    - getExDates
+    - getRDates
+    - getRRule
+    - getRRuleOccurrences
+    - jumpToVisible
+    - key
+    - limit
+    - limitBySetPos
+    - next
+    - nextInterval
+    - prev
+    - record
+    - remove
+    - rewind
+    - search
+    - setFrequencyInterval
+    - setKey
+    - sortWeekdays
+    - valid
+
+Sources\Calendar\RRule.php
+  New regex only:
+    + SMF\Calendar\RRule::__construct
+    + SMF\Calendar\RRule::__toString
+    + SMF\Calendar\RRule::getDescription
+    + SMF\Calendar\RRule::getDescriptionByDay
+    + SMF\Calendar\RRule::getDescriptionByMonth
+    + SMF\Calendar\RRule::getDescriptionByMonthDay
+    + SMF\Calendar\RRule::getDescriptionBySetPos
+    + SMF\Calendar\RRule::getDescriptionByTime
+    + SMF\Calendar\RRule::getDescriptionByWeekNo
+    + SMF\Calendar\RRule::getDescriptionByYearDay
+    + SMF\Calendar\RRule::getDescriptionNormal
+  Old regex only:
+    - __construct
+    - __toString
+    - getDescription
+    - getDescriptionByDay
+    - getDescriptionByMonth
+    - getDescriptionByMonthDay
+    - getDescriptionBySetPos
+    - getDescriptionByTime
+    - getDescriptionByWeekNo
+    - getDescriptionByYearDay
+    - getDescriptionNormal
+
+Sources\Category.php
+  New regex only:
+    + SMF\Category::__construct
+    + SMF\Category::create
+    + SMF\Category::delete
+    + SMF\Category::getTree
+    + SMF\Category::getTreeOrder
+    + SMF\Category::init
+    + SMF\Category::load
+    + SMF\Category::modify
+    + SMF\Category::parseDescription
+    + SMF\Category::queryData
+    + SMF\Category::recursiveBoards
+    + SMF\Category::sort
+    + SMF\Category::unload
+    + SMF\Category::unparseDescription
+  Old regex only:
+    - __construct
+    - create
+    - delete
+    - getTree
+    - getTreeOrder
+    - load
+    - modify
+    - parseDescription
+    - recursiveBoards
+    - sort
+    - unload
+    - unparseDescription
+
+Sources\Cookie.php
+  New regex only:
+    + SMF\Cookie::__construct
+    + SMF\Cookie::getCookie
+
+Sources\Db\APIs\MySQL.php
+  New regex only:
+    + SMF\Db\APIs\MySQL::search_language
+
+Sources\Db\APIs\PostgreSQL.php
+  New regex only:
+    + SMF\Db\APIs\PostgreSQL::search_language
+
+Sources\Db\Schema\Column.php
+  New regex only:
+    + SMF\Db\Schema\Column::__construct
+
+Sources\Db\Schema\DbIndex.php
+  New regex only:
+    + SMF\Db\Schema\DbIndex::__construct
+
+Sources\Db\Schema\GeneratedColumn.php
+  New regex only:
+    + SMF\Db\Schema\GeneratedColumn::__construct
+
+Sources\Debug\DebugContextEntry.php
+  New regex only:
+    + SMF\Debug\DebugContextEntry::__construct
+
+Sources\Diff\Diff.php
+  New regex only:
+    + SMF\Diff\Diff::__construct
+    + SMF\Diff\Diff::bifurcate
+    + SMF\Diff\Diff::checkMatchOrder
+    + SMF\Diff\Diff::checkPossibleMatches
+    + SMF\Diff\Diff::compareInline
+    + SMF\Diff\Diff::correlate
+    + SMF\Diff\Diff::correlateSimilar
+    + SMF\Diff\Diff::correlateUnchanged
+    + SMF\Diff\Diff::trimEnds
+
+Sources\Diff\EditDiff.php
+  New regex only:
+    + SMF\Diff\EditDiff::__construct
+
+Sources\Editor.php
+  New regex only:
+    + SMF\Editor::__construct
+    + SMF\Editor::__toString
+    + SMF\Editor::addBbcTag
+    + SMF\Editor::buildBbcToolbar
+    + SMF\Editor::buildButtons
+    + SMF\Editor::buildSmileysToolbar
+    + SMF\Editor::getMessageIcons
+    + SMF\Editor::implodeRecursive
+    + SMF\Editor::init
+    + SMF\Editor::initBbcTags
+    + SMF\Editor::load
+    + SMF\Editor::removeBbcTag
+    + SMF\Editor::setSCEditorOptions
+  Old regex only:
+    - __construct
+    - __toString
+    - addBbcTag
+    - buildBbcToolbar
+    - buildButtons
+    - buildSmileysToolbar
+    - getMessageIcons
+    - implodeRecursive
+    - init
+    - initBbcTags
+    - load
+    - removeBbcTag
+    - setSCEditorOptions
+
+Sources\Forum.php
+  New regex only:
+    + SMF\Forum::getCurrentAction
+
+Sources\Group.php
+  New regex only:
+    + SMF\Group::__construct
+    + SMF\Group::__set
+    + SMF\Group::addMembers
+    + SMF\Group::cacheIsOutdated
+    + SMF\Group::canBeAdditional
+    + SMF\Group::canBePostGroup
+    + SMF\Group::canBePrimary
+    + SMF\Group::canBeProtected
+    + SMF\Group::canChangePermissions
+    + SMF\Group::canChangeType
+    + SMF\Group::canDelete
+    + SMF\Group::canLeave
+    + SMF\Group::canSearch
+    + SMF\Group::copyPermissionsFrom
+    + SMF\Group::countMembers
+    + SMF\Group::countMembersBatch
+    + SMF\Group::countPermissions
+    + SMF\Group::delete
+    + SMF\Group::fixMembership
+    + SMF\Group::formatIcons
+    + SMF\Group::getAll
+    + SMF\Group::getAllWithPermissions
+    + SMF\Group::getAllowedTo
+    + SMF\Group::getBoardsCanModerate
+    + SMF\Group::getCachedList
+    + SMF\Group::getChildren
+    + SMF\Group::getHelpTxt
+    + SMF\Group::getHref
+    + SMF\Group::getLink
+    + SMF\Group::getPostGroups
+    + SMF\Group::getUnassignable
+    + SMF\Group::integrateGroupsAllowedTo
+    + SMF\Group::isAssignable
+    + SMF\Group::isModeratorGroup
+    + SMF\Group::isPostGroup
+    + SMF\Group::isProtected
+    + SMF\Group::load
+    + SMF\Group::loadAssignable
+    + SMF\Group::loadMembers
+    + SMF\Group::loadModerators
+    + SMF\Group::loadModeratorsBatch
+    + SMF\Group::loadPermissions
+    + SMF\Group::loadSimple
+    + SMF\Group::queryData
+    + SMF\Group::removeMembers
+    + SMF\Group::save
+    + SMF\Group::setPermissionsByLevel
+    + SMF\Group::updateBoardAccess
+  Old regex only:
+    - __construct
+    - __set
+    - addMembers
+    - cacheIsOutdated
+    - canBeAdditional
+    - canBePostGroup
+    - canBePrimary
+    - canBeProtected
+    - canChangePermissions
+    - canChangeType
+    - canDelete
+    - canLeave
+    - canSearch
+    - copyPermissionsFrom
+    - countMembers
+    - countMembersBatch
+    - countPermissions
+    - delete
+    - fixMembership
+    - formatIcons
+    - getAll
+    - getAllWithPermissions
+    - getAllowedTo
+    - getBoardsCanModerate
+    - getCachedList
+    - getChildren
+    - getHelpTxt
+    - getHref
+    - getLink
+    - getPostGroups
+    - getUnassignable
+    - integrateGroupsAllowedTo
+    - isAssignable
+    - isModeratorGroup
+    - isPostGroup
+    - isProtected
+    - load
+    - loadAssignable
+    - loadMembers
+    - loadModerators
+    - loadModeratorsBatch
+    - loadPermissions
+    - loadSimple
+    - removeMembers
+    - save
+    - setPermissionsByLevel
+    - updateBoardAccess
+
+Sources\IP.php
+  New regex only:
+    + SMF\IP::__construct
+    + SMF\IP::__toString
+    + SMF\IP::create
+    + SMF\IP::expand
+    + SMF\IP::getHost
+    + SMF\IP::getHostByAddr
+    + SMF\IP::getReverseDnsQuery
+    + SMF\IP::getUserIP
+    + SMF\IP::getUserIPAlternative
+    + SMF\IP::hostLookup
+    + SMF\IP::ip2range
+    + SMF\IP::is4in6
+    + SMF\IP::isLocal
+    + SMF\IP::isValid
+    + SMF\IP::matchToCIDR
+    + SMF\IP::range2ip
+    + SMF\IP::setUserIPAlternative
+    + SMF\IP::toBinary
+    + SMF\IP::toHex
+  Old regex only:
+    - __construct
+    - __toString
+    - create
+    - expand
+    - getHost
+    - getHostByAddr
+    - getReverseDnsQuery
+    - getUserIP
+    - getUserIPAlternative
+    - hostLookup
+    - ip2range
+    - is4in6
+    - isLocal
+    - isValid
+    - matchToCIDR
+    - range2ip
+    - setUserIPAlternative
+    - toBinary
+    - toHex
+
+Sources\ItemList.php
+  New regex only:
+    + SMF\ItemList::__construct
+    + SMF\ItemList::buildAdditionalRows
+    + SMF\ItemList::buildForm
+    + SMF\ItemList::buildHeaders
+    + SMF\ItemList::buildPageIndex
+    + SMF\ItemList::buildRows
+    + SMF\ItemList::checkOptions
+    + SMF\ItemList::getItems
+    + SMF\ItemList::load
+    + SMF\ItemList::setBasics
+    + SMF\ItemList::setSort
+    + SMF\ItemList::setStartAndItemsPerPage
+  Old regex only:
+    - __construct
+    - buildAdditionalRows
+    - buildForm
+    - buildHeaders
+    - buildPageIndex
+    - buildRows
+    - checkOptions
+    - getItems
+    - load
+    - setBasics
+    - setSort
+    - setStartAndItemsPerPage
+
+Sources\Lang.php
+  New regex only:
+    + SMF\Lang::getLocaleFromLanguageName
+
+Sources\Mail.php
+  New regex only:
+    + SMF\Mail::addToQueue
+    + SMF\Mail::send
+
+Sources\Maintenance\GenericSubStep.php
+  New regex only:
+    + SMF\Maintenance\GenericSubStep::__construct
+
+Sources\Maintenance\Maintenance.php
+  New regex only:
+    + SMF\Maintenance\Maintenance::loginAdmin
+    + SMF\Maintenance\Maintenance::loginWithDatabasePassword
+
+Sources\Maintenance\Tools\ToolsBase.php
+  New regex only:
+    + SMF\Maintenance\Tools\ToolsBase::finalizeLog
+    + SMF\Maintenance\Tools\ToolsBase::getStep
+
+Sources\Menu.php
+  New regex only:
+    + SMF\Menu::__construct
+    + SMF\Menu::buildArea
+    + SMF\Menu::buildExtraParameters
+    + SMF\Menu::buildSection
+    + SMF\Menu::buildSubsection
+    + SMF\Menu::checkBaseUrl
+    + SMF\Menu::create
+    + SMF\Menu::destroy
+    + SMF\Menu::enabledAndAllowed
+    + SMF\Menu::setAreaIcon
+    + SMF\Menu::setCurrentSectionAndArea
+    + SMF\Menu::setSelected
+  Old regex only:
+    - __construct
+    - buildArea
+    - buildExtraParameters
+    - buildSection
+    - buildSubsection
+    - checkBaseUrl
+    - create
+    - destroy
+    - enabledAndAllowed
+    - setAreaIcon
+    - setCurrentSectionAndArea
+    - setSelected
+
+Sources\Msg.php
+  New regex only:
+    + SMF\Msg::__construct
+    + SMF\Msg::__set
+    + SMF\Msg::approve
+    + SMF\Msg::buildRoute
+    + SMF\Msg::clearApprovalAlerts
+    + SMF\Msg::create
+    + SMF\Msg::format
+    + SMF\Msg::get
+    + SMF\Msg::load
+    + SMF\Msg::modify
+    + SMF\Msg::parseRoute
+    + SMF\Msg::queryData
+    + SMF\Msg::remove
+    + SMF\Msg::save
+    + SMF\Msg::updateLastMessages
+  Old regex only:
+    - __construct
+    - __set
+    - approve
+    - buildRoute
+    - clearApprovalAlerts
+    - create
+    - format
+    - load
+    - modify
+    - parseRoute
+    - remove
+    - save
+    - updateLastMessages
+
+Sources\PackageManager\FtpConnection.php
+  New regex only:
+    + SMF\PackageManager\FtpConnection::__construct
+    + SMF\PackageManager\FtpConnection::connect
+
+Sources\PackageManager\PackageManager.php
+  New regex only:
+    + SMF\PackageManager\PackageManager::PackagePermissionsAction
+
+Sources\PackageManager\PackageUtils.php
+  New regex only:
+    + SMF\PackageManager\PackageUtils::crypt
+    + SMF\PackageManager\PackageUtils::writeTgzFile
+
+Sources\PageIndex.php
+  New regex only:
+    + SMF\PageIndex::__construct
+    + SMF\PageIndex::__toString
+    + SMF\PageIndex::expandPages
+    + SMF\PageIndex::firstPage
+    + SMF\PageIndex::fixStart
+    + SMF\PageIndex::lastPage
+    + SMF\PageIndex::nextPage
+    + SMF\PageIndex::pageRange
+    + SMF\PageIndex::prevPage
+    + SMF\PageIndex::setTemplateOverrides
+  Old regex only:
+    - __toString
+    - expandPages
+    - firstPage
+    - fixStart
+    - lastPage
+    - nextPage
+    - pageRange
+    - prevPage
+    - setTemplateOverrides
+
+Sources\Parser.php
+  New regex only:
+    + SMF\Parser::transform
+
+Sources\Permissions\Permission.php
+  New regex only:
+    + SMF\Permissions\Permission::__construct
+    + SMF\Permissions\Permission::addToKnownPermissions
+    + SMF\Permissions\Permission::canAssign
+    + SMF\Permissions\Permission::canBeGrantedTo
+    + SMF\Permissions\Permission::eligibleGroups
+    + SMF\Permissions\Permission::exists
+    + SMF\Permissions\Permission::get
+    + SMF\Permissions\Permission::getAll
+    + SMF\Permissions\Permission::getByGenericName
+    + SMF\Permissions\Permission::getHidden
+    + SMF\Permissions\Permission::getNonGuestPermissions
+    + SMF\Permissions\Permission::getUnassignable
+    + SMF\Permissions\Permission::ineligibleGroups
+    + SMF\Permissions\Permission::integrateHeavyPermissionsSession
+    + SMF\Permissions\Permission::integrateLoadIllegalGuestPermissions
+    + SMF\Permissions\Permission::integrateLoadIllegalPermissions
+    + SMF\Permissions\Permission::integrateLoadPermissionLevels
+  Old regex only:
+    - __construct
+    - addToKnownPermissions
+    - canAssign
+    - canBeGrantedTo
+    - eligibleGroups
+    - exists
+    - get
+    - getAll
+    - getByGenericName
+    - getHidden
+    - getNonGuestPermissions
+    - getUnassignable
+    - ineligibleGroups
+    - integrateHeavyPermissionsSession
+    - integrateLoadIllegalGuestPermissions
+    - integrateLoadIllegalPermissions
+    - integrateLoadPermissionLevels
+
+Sources\Permissions\PermissionProfile.php
+  New regex only:
+    + SMF\Permissions\PermissionProfile::copy
+    + SMF\Permissions\PermissionProfile::load
+
+Sources\PersonalMessage\Label.php
+  New regex only:
+    + SMF\PersonalMessage\Label::__construct
+    + SMF\PersonalMessage\Label::load
+    + SMF\PersonalMessage\Label::manage
+  Old regex only:
+    - __construct
+    - load
+    - manage
+
+Sources\PersonalMessage\PM.php
+  New regex only:
+    + SMF\PersonalMessage\PM::__construct
+    + SMF\PersonalMessage\PM::canAccess
+    + SMF\PersonalMessage\PM::compose
+    + SMF\PersonalMessage\PM::compose2
+    + SMF\PersonalMessage\PM::countSent
+    + SMF\PersonalMessage\PM::delete
+    + SMF\PersonalMessage\PM::format
+    + SMF\PersonalMessage\PM::get
+    + SMF\PersonalMessage\PM::getLatest
+    + SMF\PersonalMessage\PM::getRecent
+    + SMF\PersonalMessage\PM::load
+    + SMF\PersonalMessage\PM::markRead
+    + SMF\PersonalMessage\PM::old
+    + SMF\PersonalMessage\PM::queryData
+    + SMF\PersonalMessage\PM::reportErrors
+    + SMF\PersonalMessage\PM::send
+  Old regex only:
+    - __construct
+    - canAccess
+    - compose
+    - compose2
+    - countSent
+    - delete
+    - format
+    - getLatest
+    - getRecent
+    - load
+    - markRead
+    - old
+    - reportErrors
+    - send
+
+Sources\PersonalMessage\Received.php
+  New regex only:
+    + SMF\PersonalMessage\Received::__construct
+    + SMF\PersonalMessage\Received::__set
+    + SMF\PersonalMessage\Received::addLabel
+    + SMF\PersonalMessage\Received::count
+    + SMF\PersonalMessage\Received::getLabels
+    + SMF\PersonalMessage\Received::getLatest
+    + SMF\PersonalMessage\Received::getRecent
+    + SMF\PersonalMessage\Received::loadByPm
+    + SMF\PersonalMessage\Received::loadUnread
+    + SMF\PersonalMessage\Received::old
+    + SMF\PersonalMessage\Received::queryData
+    + SMF\PersonalMessage\Received::removeLabel
+    + SMF\PersonalMessage\Received::save
+    + SMF\PersonalMessage\Received::setNotNew
+  Old regex only:
+    - __construct
+    - __set
+    - addLabel
+    - count
+    - getLabels
+    - getLatest
+    - getRecent
+    - loadByPm
+    - loadUnread
+    - old
+    - removeLabel
+    - save
+    - setNotNew
+
+Sources\PersonalMessage\Rule.php
+  New regex only:
+    + SMF\PersonalMessage\Rule::__construct
+    + SMF\PersonalMessage\Rule::apply
+    + SMF\PersonalMessage\Rule::delete
+    + SMF\PersonalMessage\Rule::load
+    + SMF\PersonalMessage\Rule::manage
+    + SMF\PersonalMessage\Rule::save
+  Old regex only:
+    - __construct
+    - apply
+    - delete
+    - load
+    - manage
+    - save
+
+Sources\PersonalMessage\SearchResult.php
+  New regex only:
+    + SMF\PersonalMessage\SearchResult::getFormatted
+
+Sources\Poll.php
+  New regex only:
+    + SMF\Poll::__construct
+    + SMF\Poll::__set
+    + SMF\Poll::addChoice
+    + SMF\Poll::buildPermissions
+    + SMF\Poll::canGuestsVote
+    + SMF\Poll::checkAccess
+    + SMF\Poll::checkCreatePermission
+    + SMF\Poll::checkEditPermission
+    + SMF\Poll::checkExpiry
+    + SMF\Poll::checkLocked
+    + SMF\Poll::checkRemovePermission
+    + SMF\Poll::create
+    + SMF\Poll::format
+    + SMF\Poll::getMostActive
+    + SMF\Poll::getMostRecent
+    + SMF\Poll::getVoters
+    + SMF\Poll::initNewPoll
+    + SMF\Poll::load
+    + SMF\Poll::loadPollData
+    + SMF\Poll::resetQueryOptions
+    + SMF\Poll::resetVotes
+    + SMF\Poll::sanitizeInput
+    + SMF\Poll::save
+    + SMF\Poll::setProperties
+  Old regex only:
+    - __construct
+    - __set
+    - addChoice
+    - buildPermissions
+    - canGuestsVote
+    - checkAccess
+    - checkCreatePermission
+    - checkEditPermission
+    - checkExpiry
+    - checkLocked
+    - checkRemovePermission
+    - format
+    - getMostActive
+    - getMostRecent
+    - getVoters
+    - initNewPoll
+    - load
+    - loadPollData
+    - resetQueryOptions
+    - resetVotes
+    - sanitizeInput
+    - save
+    - setProperties
+
+Sources\PollChoice.php
+  New regex only:
+    + SMF\PollChoice::__construct
+    + SMF\PollChoice::add
+    + SMF\PollChoice::delete
+    + SMF\PollChoice::save
+    + SMF\PollChoice::update
+  Old regex only:
+    - __construct
+    - add
+    - delete
+    - save
+    - update
+
+Sources\Profile.php
+  New regex only:
+    + SMF\Profile::__construct
+    + SMF\Profile::getAvatars
+    + SMF\Profile::load
+    + SMF\Profile::loadAssignableGroups
+    + SMF\Profile::loadAvatarData
+    + SMF\Profile::loadCustomFieldDefinitions
+    + SMF\Profile::loadCustomFields
+    + SMF\Profile::loadSignatureData
+    + SMF\Profile::loadStandardFields
+    + SMF\Profile::loadThemeOptions
+    + SMF\Profile::prepareToSaveBuddyList
+    + SMF\Profile::prepareToSaveCustomFields
+    + SMF\Profile::prepareToSaveIgnoreBoards
+    + SMF\Profile::prepareToSaveOptions
+    + SMF\Profile::prepareToSaveStandardFields
+    + SMF\Profile::reloadUser
+    + SMF\Profile::resetPassword
+    + SMF\Profile::save
+    + SMF\Profile::sendActivation
+    + SMF\Profile::setAvatarAttachment
+    + SMF\Profile::setAvatarExternal
+    + SMF\Profile::setAvatarGravatar
+    + SMF\Profile::setAvatarNone
+    + SMF\Profile::setAvatarServerStored
+    + SMF\Profile::setupContext
+    + SMF\Profile::validateAvatarData
+    + SMF\Profile::validateEmail
+    + SMF\Profile::validateGroups
+    + SMF\Profile::validateSignature
+  Old regex only:
+    - __construct
+    - getAvatars
+    - load
+    - loadAssignableGroups
+    - loadAvatarData
+    - loadCustomFieldDefinitions
+    - loadCustomFields
+    - loadSignatureData
+    - loadStandardFields
+    - loadThemeOptions
+    - prepareToSaveBuddyList
+    - prepareToSaveCustomFields
+    - prepareToSaveIgnoreBoards
+    - prepareToSaveOptions
+    - prepareToSaveStandardFields
+    - reloadUser
+    - resetPassword
+    - save
+    - sendActivation
+    - setAvatarGravatar
+    - setAvatarNone
+    - setAvatarServerStored
+    - setupContext
+    - validateAvatarData
+    - validateEmail
+    - validateGroups
+    - validateSignature
+
+Sources\QueryString.php
+  New regex only:
+    + SMF\QueryString::getRouteParser
+
+Sources\Search\APIs\Custom.php
+  New regex only:
+    + SMF\Search\APIs\Custom::getStatus
+
+Sources\Search\APIs\Fulltext.php
+  New regex only:
+    + SMF\Search\APIs\Fulltext::getStatus
+
+Sources\Search\APIs\Parsed.php
+  New regex only:
+    + SMF\Search\APIs\Parsed::getStatus
+
+Sources\Search\SearchApi.php
+  New regex only:
+    + SMF\Search\SearchApi::getStatus
+
+Sources\Search\SearchResult.php
+  New regex only:
+    + SMF\Search\SearchResult::format
+    + SMF\Search\SearchResult::get
+    + SMF\Search\SearchResult::getNumResults
+    + SMF\Search\SearchResult::highlight
+    + SMF\Search\SearchResult::setBoardsCan
+  Old regex only:
+    - format
+    - getNumResults
+    - highlight
+    - setBoardsCan
+
+Sources\Security.php
+  New regex only:
+    + SMF\Security::checkSubmitOnce
+    + SMF\Security::validatePassword
+
+Sources\SecurityToken.php
+  New regex only:
+    + SMF\SecurityToken::__construct
+    + SMF\SecurityToken::clean
+    + SMF\SecurityToken::create
+    + SMF\SecurityToken::getHash
+    + SMF\SecurityToken::validate
+  Old regex only:
+    - __construct
+    - clean
+    - create
+    - getHash
+    - validate
+
+Sources\ServerSideIncludes.php
+  New regex only:
+    + SMF\ServerSideIncludes::boardNews
+    + SMF\ServerSideIncludes::boardStats
+    + SMF\ServerSideIncludes::checkPassword
+    + SMF\ServerSideIncludes::copyright
+    + SMF\ServerSideIncludes::fetchGroupMembers
+    + SMF\ServerSideIncludes::fetchMember
+    + SMF\ServerSideIncludes::fetchPosts
+    + SMF\ServerSideIncludes::fullVersion
+    + SMF\ServerSideIncludes::latestMember
+    + SMF\ServerSideIncludes::logOnline
+    + SMF\ServerSideIncludes::login
+    + SMF\ServerSideIncludes::menubar
+    + SMF\ServerSideIncludes::news
+    + SMF\ServerSideIncludes::queryMembers
+    + SMF\ServerSideIncludes::queryPosts
+    + SMF\ServerSideIncludes::quickSearch
+    + SMF\ServerSideIncludes::randomMember
+    + SMF\ServerSideIncludes::recentAttachments
+    + SMF\ServerSideIncludes::recentEvents
+    + SMF\ServerSideIncludes::recentPoll
+    + SMF\ServerSideIncludes::recentPosts
+    + SMF\ServerSideIncludes::recentTopics
+    + SMF\ServerSideIncludes::showPoll
+    + SMF\ServerSideIncludes::softwareYear
+    + SMF\ServerSideIncludes::todaysBirthdays
+    + SMF\ServerSideIncludes::todaysEvents
+    + SMF\ServerSideIncludes::todaysHolidays
+    + SMF\ServerSideIncludes::topBoards
+    + SMF\ServerSideIncludes::topPoll
+    + SMF\ServerSideIncludes::topPoster
+    + SMF\ServerSideIncludes::topTopics
+    + SMF\ServerSideIncludes::topTopicsReplies
+    + SMF\ServerSideIncludes::topTopicsViews
+    + SMF\ServerSideIncludes::version
+    + SMF\ServerSideIncludes::welcome
+    + SMF\ServerSideIncludes::whosOnline
+
+Sources\Session.php
+  New regex only:
+    + SMF\Session::close
+    + SMF\Session::destroy
+    + SMF\Session::gc
+    + SMF\Session::load
+    + SMF\Session::open
+    + SMF\Session::read
+    + SMF\Session::write
+  Old regex only:
+    - close
+    - destroy
+    - gc
+    - load
+    - open
+    - read
+    - write
+
+Sources\Slug.php
+  New regex only:
+    + SMF\Slug::__construct
+    + SMF\Slug::__toString
+    + SMF\Slug::build
+    + SMF\Slug::create
+    + SMF\Slug::getCached
+    + SMF\Slug::redirectNoncanonical
+    + SMF\Slug::setRequested
+  Old regex only:
+    - __construct
+    - __toString
+    - build
+    - create
+    - getCached
+    - redirectNoncanonical
+    - setRequested
+
+Sources\Subs-Compat.php
+  New regex only:
+    + AddMailQueue
+    + AdminLogs
+    + ApproveAttachments
+    + AutoSuggestHandler
+    + BoardIndex
+    + CalculateNextTrigger
+    + DeleteDraft
+    + EditBoardSettings
+    + EditPoll
+    + EditPoll2
+    + EditSearchSettings
+    + EditSmileySettings
+    + GeneralPermissionSettings
+    + JavaScriptEscape
+    + KickGuest
+    + LockTopic
+    + LockVoting
+    + ManageAttachmentSettings
+    + ManageAvatarSettings
+    + ManageSearchEngineSettings
+    + ModifyAntispamSettings
+    + ModifyBBCSettings
+    + ModifyBasicSettings
+    + ModifyCacheSettings
+    + ModifyCalendarSettings
+    + ModifyCookieSettings
+    + ModifyDatabaseSettings
+    + ModifyDraftSettings
+    + ModifyExportSettings
+    + ModifyGeneralSecuritySettings
+    + ModifyGeneralSettings
+    + ModifyLanguageSettings
+    + ModifyLayoutSettings
+    + ModifyLikesSettings
+    + ModifyLoadBalancingSettings
+    + ModifyMailSettings
+    + ModifyMembergroupsettings
+    + ModifyMentionsSettings
+    + ModifyModSettings
+    + ModifyNewsSettings
+    + ModifyPostSettings
+    + ModifyRegistrationSettings
+    + ModifySignatureSettings
+    + ModifySubscriptionSettings
+    + ModifyTopicSettings
+    + ModifyWarningSettings
+    + PickTheme
+    + RemovePoll
+    + RetrievePreview
+    + SetJavaScript
+    + ShowDrafts
+    + Sticky
+    + TaskSettings
+    + Vote
+    + WrapAction
+    + addInlineCss
+    + addInlineJavaScript
+    + addJavaScriptVar
+    + addSubscription
+    + add_integration_function
+    + adminNotify
+    + alert_delete
+    + allowedTo
+    + approvePosts
+    + approveTopics
+    + array_all
+    + array_any
+    + array_find
+    + array_find_key
+    + array_first
+    + array_is_list
+    + array_last
+    + array_length
+    + automanage_attachments_by_space
+    + automanage_attachments_check_directory
+    + banPermissions
+    + boardsAllowedTo
+    + build_query_board
+    + build_regex
+    + cache_getMembergroupList
+    + call_helper
+    + call_integration_hook
+    + censorText
+    + checkConfirm
+    + checkSession
+    + checkSubmitOnce
+    + check_mime_type
+    + cleanRequest
+    + cleanTokens
+    + cleanXml
+    + clearApprovalAlerts
+    + comma_format
+    + constructPageIndex
+    + convertDateToEnglish
+    + corsPolicyHeader
+    + createCategory
+    + createList
+    + createMenu
+    + createPost
+    + createToken
+    + create_chmod_control
+    + create_control_richedit
+    + create_control_verification
+    + custMinify
+    + deleteAllMinified
+    + deleteCategories
+    + deleteMembers
+    + destroyMenu
+    + detectBrowser
+    + displayDebug
+    + display_db_error
+    + display_loadavg_error
+    + display_maintenance_message
+    + entity_fix__callback
+    + escapestring__recursive
+    + expandIPv6
+    + fatal_error
+    + fatal_lang_error
+    + fetch_alerts
+    + findMembers
+    + findSearchAPI
+    + fixTag
+    + fixchar__callback
+    + forum_time
+    + frameOptionsHeader
+    + generateValidationCode
+    + getAttachMsgInfo
+    + getAttachmentFilename
+    + getBoardTree
+    + getCalendarGrid
+    + getGroupsWithPermissions
+    + getLanguages
+    + getMembersOnlineStats
+    + getMessageIcons
+    + getTreeOrder
+    + getUserTimezone
+    + get_date_or_time_format
+    + get_integration_hooks_data
+    + get_mime_type
+    + get_proxied_url
+    + get_sorted_tzids_for_country
+    + get_tzid_fallbacks
+    + get_tzid_metazones
+    + grapheme_str_split
+    + grapheme_stripos
+    + grapheme_stristr
+    + grapheme_strlen
+    + grapheme_strpos
+    + grapheme_strripos
+    + grapheme_strrpos
+    + grapheme_strstr
+    + grapheme_substr
+    + groupsAllowedTo
+    + hash_benchmark
+    + hash_password
+    + hash_salt
+    + hash_verify_password
+    + host_from_ip
+    + htmlspecialchars__recursive
+    + htmltrim__recursive
+    + https_redirect_active
+    + idn_to_ascii
+    + idn_to_utf8
+    + inet_dtop
+    + inet_ptod
+    + insertEvent
+    + ip2range
+    + iri_to_url
+    + isAllowedTo
+    + isBannedEmail
+    + isBrowser
+    + isReservedName
+    + isValidIP
+    + isValidIPv6
+    + is_filtered_request
+    + is_not_banned
+    + is_not_guest
+    + loadCSSFile
+    + loadCacheAccelerator
+    + loadCustomFields
+    + loadDatabase
+    + loadEmailTemplate
+    + loadEssentialThemeData
+    + loadJavaScriptFile
+    + loadLanguage
+    + loadMemberContext
+    + loadMemberData
+    + loadPermissions
+    + loadProfileFields
+    + loadSession
+    + loadSubTemplate
+    + loadTemplate
+    + loadTheme
+    + loadThemeOptions
+    + loadUserSettings
+    + logAction
+    + logActions
+    + logSpider
+    + log_ban
+    + log_error
+    + makeCustomFieldChanges
+    + makeThemeChanges
+    + matchIPtoCIDR
+    + membersAllowedTo
+    + memoryReturnBytes
+    + mimespecialchars
+    + modifyCategory
+    + modifyEvent
+    + modifyPost
+    + moveTopics
+    + normalize_iri
+    + normalize_spaces
+    + obExit
+    + ob_sessrewrite
+    + parsePackageInfo
+    + parse_bbc
+    + parse_iri
+    + prepareLikesContext
+    + profileLoadGroups
+    + profileValidateSignature
+    + range2ip
+    + read_tgz_data
+    + read_tgz_file
+    + read_zip_data
+    + reattributePosts
+    + recursiveBoards
+    + redirectexit
+    + reduceQueue
+    + removeAttachments
+    + removeEvent
+    + removeMessage
+    + removeTopics
+    + remove_integration_function
+    + replaceEntities__callback
+    + resizeImage
+    + resizeImageFile
+    + safe_serialize
+    + safe_unserialize
+    + sanitizeMSCutPaste
+    + sanitize_chars
+    + sanitize_iri
+    + secureDirectory
+    + sendMail
+    + sendNotifications
+    + send_http_status
+    + sendpm
+    + sentence_list
+    + serverParse
+    + setLoginCookie
+    + setMemoryLimit
+    + setTFACookie
+    + set_avatar_data
+    + set_tld_regex
+    + setupMenuContext
+    + setupProfileContext
+    + setupThemeContext
+    + shorten_subject
+    + showProfileDrafts
+    + sm_temp_dir
+    + smf_chmod
+    + smf_crc32
+    + smf_error_handler
+    + smf_gmstrftime
+    + smf_json_decode
+    + smf_list_timezones
+    + smf_serverResponse
+    + smf_setcookie
+    + smf_strftime
+    + smtp_mail
+    + sortCategories
+    + spamProtection
+    + ssi_boardNews
+    + ssi_boardStats
+    + ssi_checkPassword
+    + ssi_copyright
+    + ssi_fetchGroupMembers
+    + ssi_fetchMember
+    + ssi_fetchPosts
+    + ssi_full_version
+    + ssi_latestMember
+    + ssi_logOnline
+    + ssi_login
+    + ssi_logout
+    + ssi_menubar
+    + ssi_news
+    + ssi_pollVote
+    + ssi_queryMembers
+    + ssi_queryPosts
+    + ssi_quickSearch
+    + ssi_randomMember
+    + ssi_recentAttachments
+    + ssi_recentEvents
+    + ssi_recentPoll
+    + ssi_recentPosts
+    + ssi_recentTopics
+    + ssi_showPoll
+    + ssi_shutdown
+    + ssi_software_year
+    + ssi_todaysBirthdays
+    + ssi_todaysCalendar
+    + ssi_todaysEvents
+    + ssi_todaysHolidays
+    + ssi_topBoards
+    + ssi_topPoll
+    + ssi_topPoster
+    + ssi_topTopics
+    + ssi_topTopicsReplies
+    + ssi_topTopicsViews
+    + ssi_version
+    + ssi_welcome
+    + ssi_whosOnline
+    + ssl_cert_found
+    + stripslashes__recursive
+    + template_css
+    + template_footer
+    + template_header
+    + template_javascript
+    + text2words
+    + theme_copyright
+    + timeformat
+    + tokenTxtReplace
+    + trackStats
+    + trackStatsUsersOnline
+    + truncate_array
+    + un_htmlspecialchars
+    + unescapestring__recursive
+    + updateChildPermissions
+    + updateLastMessages
+    + updateMemberData
+    + updateStats
+    + url_parts
+    + url_to_iri
+    + urldecode__recursive
+    + validatePassword
+    + validatePasswordFlood
+    + validateSession
+    + validateToken
+    + validateUsername
+    + validate_iri
+    + validate_iso_country_codes
+    + writeLog
+  Old regex only:
+    - from::CalculateNextTrigger
+    - from::DeleteDraft
+    - from::EditPoll
+    - from::EditPoll2
+    - from::JavaScriptEscape
+    - from::KickGuest
+    - from::LockTopic
+    - from::LockVoting
+    - from::PickTheme
+    - from::RemovePoll
+    - from::SetJavaScript
+    - from::ShowDrafts
+    - from::Sticky
+    - from::Vote
+    - from::WrapAction
+    - from::addJavaScriptVar
+    - from::adminNotify
+    - from::allowedTo
+    - from::approvePosts
+    - from::approveTopics
+    - from::array_all
+    - from::array_any
+    - from::array_find
+    - from::array_find_key
+    - from::array_first
+    - from::array_is_list
+    - from::array_last
+    - from::array_length
+    - from::banPermissions
+    - from::boardsAllowedTo
+    - from::build_query_board
+    - from::build_regex
+    - from::cache_getMembergroupList
+    - from::call_helper
+    - from::call_integration_hook
+    - from::censorText
+    - from::checkConfirm
+    - from::checkSession
+    - from::check_mime_type
+    - from::cleanRequest
+    - from::cleanTokens
+    - from::cleanXml
+    - from::clearApprovalAlerts
+    - from::comma_format
+    - from::convertDateToEnglish
+    - from::corsPolicyHeader
+    - from::createCategory
+    - from::createMenu
+    - from::createPost
+    - from::createToken
+    - from::create_control_verification
+    - from::custMinify
+    - from::deleteAllMinified
+    - from::deleteCategories
+    - from::deleteMembers
+    - from::detectBrowser
+    - from::displayDebug
+    - from::display_db_error
+    - from::display_loadavg_error
+    - from::display_maintenance_message
+    - from::entity_fix__callback
+    - from::escapestring__recursive
+    - from::expandIPv6
+    - from::fatal_error
+    - from::fatal_lang_error
+    - from::fixchar__callback
+    - from::forum_time
+    - from::frameOptionsHeader
+    - from::generateValidationCode
+    - from::getBoardTree
+    - from::getLanguages
+    - from::getMembersOnlineStats
+    - from::getMessageIcons
+    - from::getTreeOrder
+    - from::getUserTimezone
+    - from::get_date_or_time_format
+    - from::get_mime_type
+    - from::get_proxied_url
+    - from::get_sorted_tzids_for_country
+    - from::get_tzid_fallbacks
+    - from::get_tzid_metazones
+    - from::grapheme_str_split
+    - from::grapheme_stripos
+    - from::grapheme_stristr
+    - from::grapheme_strlen
+    - from::grapheme_strpos
+    - from::grapheme_strripos
+    - from::grapheme_strrpos
+    - from::grapheme_strstr
+    - from::grapheme_substr
+    - from::groupsAllowedTo
+    - from::hash_benchmark
+    - from::hash_password
+    - from::hash_salt
+    - from::hash_verify_password
+    - from::host_from_ip
+    - from::htmlspecialchars__recursive
+    - from::htmltrim__recursive
+    - from::https_redirect_active
+    - from::idn_to_ascii
+    - from::idn_to_utf8
+    - from::inet_dtop
+    - from::inet_ptod
+    - from::insertEvent
+    - from::ip2range
+    - from::iri_to_url
+    - from::isAllowedTo
+    - from::isBannedEmail
+    - from::isBrowser
+    - from::isReservedName
+    - from::isValidIP
+    - from::isValidIPv6
+    - from::is_filtered_request
+    - from::is_not_banned
+    - from::is_not_guest
+    - from::loadCSSFile
+    - from::loadCustomFields
+    - from::loadEssentialThemeData
+    - from::loadJavaScriptFile
+    - from::loadMemberContext
+    - from::loadMemberData
+    - from::loadPermissions
+    - from::loadProfileFields
+    - from::loadSession
+    - from::loadSubTemplate
+    - from::loadTheme
+    - from::loadThemeOptions
+    - from::loadUserSettings
+    - from::logAction
+    - from::logActions
+    - from::logSpider
+    - from::log_ban
+    - from::makeThemeChanges
+    - from::matchIPtoCIDR
+    - from::membersAllowedTo
+    - from::memoryReturnBytes
+    - from::modifyCategory
+    - from::modifyEvent
+    - from::modifyPost
+    - from::moveTopics
+    - from::normalize_iri
+    - from::normalize_spaces
+    - from::ob_sessrewrite
+    - from::parse_iri
+    - from::prepareLikesContext
+    - from::profileLoadGroups
+    - from::profileValidateSignature
+    - from::range2ip
+    - from::recursiveBoards
+    - from::redirectexit
+    - from::reduceQueue
+    - from::removeEvent
+    - from::removeMessage
+    - from::replaceEntities__callback
+    - from::safe_serialize
+    - from::safe_unserialize
+    - from::sanitizeMSCutPaste
+    - from::sanitize_chars
+    - from::sanitize_iri
+    - from::secureDirectory
+    - from::sendNotifications
+    - from::send_http_status
+    - from::sentence_list
+    - from::serverParse
+    - from::setLoginCookie
+    - from::setMemoryLimit
+    - from::setTFACookie
+    - from::set_avatar_data
+    - from::set_tld_regex
+    - from::setupMenuContext
+    - from::setupProfileContext
+    - from::setupThemeContext
+    - from::shorten_subject
+    - from::showProfileDrafts
+    - from::sm_temp_dir
+    - from::smf_chmod
+    - from::smf_crc32
+    - from::smf_error_handler
+    - from::smf_gmstrftime
+    - from::smf_json_decode
+    - from::smf_list_timezones
+    - from::smf_serverResponse
+    - from::smf_strftime
+    - from::smtp_mail
+    - from::sortCategories
+    - from::spamProtection
+    - from::ssi_checkPassword
+    - from::ssi_copyright
+    - from::ssi_full_version
+    - from::ssi_logout
+    - from::ssi_menubar
+    - from::ssi_pollVote
+    - from::ssi_shutdown
+    - from::ssi_software_year
+    - from::ssi_todaysCalendar
+    - from::ssi_version
+    - from::ssi_welcome
+    - from::ssl_cert_found
+    - from::stripslashes__recursive
+    - from::template_css
+    - from::template_footer
+    - from::template_header
+    - from::template_javascript
+    - from::text2words
+    - from::theme_copyright
+    - from::timeformat
+    - from::tokenTxtReplace
+    - from::trackStats
+    - from::trackStatsUsersOnline
+    - from::truncate_array
+    - from::un_htmlspecialchars
+    - from::unescapestring__recursive
+    - from::updateMemberData
+    - from::updateStats
+    - from::url_parts
+    - from::url_to_iri
+    - from::urldecode__recursive
+    - from::validateToken
+    - from::validate_iri
+    - from::validate_iso_country_codes
+    - from::writeLog
+
+Sources\Tasks\ExportProfileData.php
+  New regex only:
+    + SMF\Tasks\ExportProfileData::add_dtd
+
+Sources\Theme.php
+  New regex only:
+    + SMF\Theme::loadTemplate
+
+Sources\Time.php
+  New regex only:
+    + SMF\Time::__construct
+    + SMF\Time::__get
+    + SMF\Time::__isset
+    + SMF\Time::__set
+    + SMF\Time::convertToEnglish
+    + SMF\Time::create
+    + SMF\Time::createFromImmutable
+    + SMF\Time::createFromInterface
+    + SMF\Time::createFromMutable
+    + SMF\Time::datetimePartialFormat
+    + SMF\Time::format
+    + SMF\Time::getDateFormat
+    + SMF\Time::getDateOrTimeFormat
+    + SMF\Time::getShortDateFormat
+    + SMF\Time::getShortTimeFormat
+    + SMF\Time::getTimeFormat
+    + SMF\Time::gmstrftime
+    + SMF\Time::isStrftimeFormat
+    + SMF\Time::sanitize
+    + SMF\Time::setParsableWordsRegex
+    + SMF\Time::setTimezone
+    + SMF\Time::strftime
+    + SMF\Time::strftimePartialFormat
+    + SMF\Time::stringFromUnix
+  Old regex only:
+    - __construct
+    - __get
+    - __isset
+    - __set
+    - convertToEnglish
+    - create
+    - createFromImmutable
+    - createFromInterface
+    - createFromMutable
+    - datetimePartialFormat
+    - format
+    - getDateFormat
+    - getDateOrTimeFormat
+    - getShortDateFormat
+    - getShortTimeFormat
+    - getTimeFormat
+    - gmstrftime
+    - isStrftimeFormat
+    - sanitize
+    - setParsableWordsRegex
+    - setTimezone
+    - strftime
+    - strftimePartialFormat
+    - stringFromUnix
+
+Sources\TimeInterval.php
+  New regex only:
+    + SMF\TimeInterval::__construct
+    + SMF\TimeInterval::__toString
+    + SMF\TimeInterval::createFromDateInterval
+    + SMF\TimeInterval::localize
+    + SMF\TimeInterval::toParsable
+    + SMF\TimeInterval::toSeconds
+  Old regex only:
+    - __construct
+    - __toString
+    - createFromDateInterval
+    - localize
+    - toParsable
+    - toSeconds
+
+Sources\TimeZone.php
+  New regex only:
+    + SMF\TimeZone::buildMetaZoneTransitions
+    + SMF\TimeZone::create
+    + SMF\TimeZone::getAbbreviations
+    + SMF\TimeZone::getDstType
+    + SMF\TimeZone::getLabel
+    + SMF\TimeZone::getMetaZone
+    + SMF\TimeZone::getMetaZoneLabel
+    + SMF\TimeZone::getSortedTzidsForCountry
+    + SMF\TimeZone::getStandardOffset
+    + SMF\TimeZone::getTimeRange
+    + SMF\TimeZone::getTzidFallbacks
+    + SMF\TimeZone::getTzidMetazones
+    + SMF\TimeZone::list
+    + SMF\TimeZone::prioritizeTzids
+    + SMF\TimeZone::validateIsoCountryCodes
+  Old regex only:
+    - buildMetaZoneTransitions
+    - create
+    - getAbbreviations
+    - getDstType
+    - getLabel
+    - getMetaZone
+    - getMetaZoneLabel
+    - getSortedTzidsForCountry
+    - getStandardOffset
+    - getTimeRange
+    - getTzidFallbacks
+    - getTzidMetazones
+    - list
+    - prioritizeTzids
+    - validateIsoCountryCodes
+
+Sources\Topic.php
+  New regex only:
+    + SMF\Topic::__construct
+    + SMF\Topic::__set
+    + SMF\Topic::addReply
+    + SMF\Topic::approve
+    + SMF\Topic::buildRoute
+    + SMF\Topic::create
+    + SMF\Topic::doPermissions
+    + SMF\Topic::getLikedMsgs
+    + SMF\Topic::getLinkedEvents
+    + SMF\Topic::getNotificationPrefs
+    + SMF\Topic::load
+    + SMF\Topic::loadTopicInfo
+    + SMF\Topic::lock
+    + SMF\Topic::markAsRead
+    + SMF\Topic::move
+    + SMF\Topic::parseRoute
+    + SMF\Topic::remove
+    + SMF\Topic::save
+    + SMF\Topic::sticky
+  Old regex only:
+    - __construct
+    - __set
+    - addReply
+    - approve
+    - buildRoute
+    - create
+    - doPermissions
+    - getLikedMsgs
+    - getLinkedEvents
+    - getNotificationPrefs
+    - load
+    - loadTopicInfo
+    - lock
+    - markAsRead
+    - move
+    - parseRoute
+    - remove
+    - save
+    - sticky
+
+Sources\Unicode\Utf8String.php
+  New regex only:
+    + SMF\Unicode\Utf8String::__construct
+    + SMF\Unicode\Utf8String::__toString
+    + SMF\Unicode\Utf8String::compose
+    + SMF\Unicode\Utf8String::convertCase
+    + SMF\Unicode\Utf8String::create
+    + SMF\Unicode\Utf8String::decompose
+    + SMF\Unicode\Utf8String::emojiRegex
+    + SMF\Unicode\Utf8String::extractWords
+    + SMF\Unicode\Utf8String::isNormalized
+    + SMF\Unicode\Utf8String::normalize
+    + SMF\Unicode\Utf8String::normalizeC
+    + SMF\Unicode\Utf8String::normalizeD
+    + SMF\Unicode\Utf8String::normalizeKC
+    + SMF\Unicode\Utf8String::normalizeKCFold
+    + SMF\Unicode\Utf8String::normalizeKD
+    + SMF\Unicode\Utf8String::preserveEmoji
+    + SMF\Unicode\Utf8String::sanitizeInvisibles
+    + SMF\Unicode\Utf8String::sanitizeJoinControls
+    + SMF\Unicode\Utf8String::sanitizeVariationSelectors
+    + SMF\Unicode\Utf8String::semanticSplit
+  Old regex only:
+    - __construct
+    - __toString
+    - compose
+    - convertCase
+    - create
+    - decompose
+    - emojiRegex
+    - extractWords
+    - isNormalized
+    - normalize
+    - normalizeC
+    - normalizeD
+    - normalizeKC
+    - normalizeKCFold
+    - normalizeKD
+    - preserveEmoji
+    - sanitizeInvisibles
+    - sanitizeJoinControls
+    - sanitizeVariationSelectors
+    - semanticSplit
+
+Sources\Url.php
+  New regex only:
+    + SMF\Url::__construct
+    + SMF\Url::__toString
+    + SMF\Url::checkIfAscii
+    + SMF\Url::create
+    + SMF\Url::hasSSL
+    + SMF\Url::isGravatar
+    + SMF\Url::isScheme
+    + SMF\Url::isValid
+    + SMF\Url::isWebsite
+    + SMF\Url::normalize
+    + SMF\Url::parse
+    + SMF\Url::proxied
+    + SMF\Url::redirectsToHttps
+    + SMF\Url::sanitize
+    + SMF\Url::setTldRegex
+    + SMF\Url::toAscii
+    + SMF\Url::toUtf8
+    + SMF\Url::validate
+  Old regex only:
+    - __construct
+    - __toString
+    - checkIfAscii
+    - create
+    - hasSSL
+    - isGravatar
+    - isScheme
+    - isValid
+    - isWebsite
+    - normalize
+    - parse
+    - proxied
+    - redirectsToHttps
+    - sanitize
+    - setTldRegex
+    - toAscii
+    - toUtf8
+    - validate
+
+Sources\User.php
+  New regex only:
+    + SMF\User::__construct
+    + SMF\User::__set
+    + SMF\User::allowedTo
+    + SMF\User::anonymize
+    + SMF\User::boardsAllowedTo
+    + SMF\User::boardsCanAccess
+    + SMF\User::buildQueryBoard
+    + SMF\User::checkSession
+    + SMF\User::chooseMyDataset
+    + SMF\User::delete
+    + SMF\User::find
+    + SMF\User::fixTimezoneSetting
+    + SMF\User::format
+    + SMF\User::getAllowedTo
+    + SMF\User::getGravatarUrl
+    + SMF\User::getTimezone
+    + SMF\User::groupsCanModerate
+    + SMF\User::initializeGuest
+    + SMF\User::integrateVerifyUser
+    + SMF\User::isAllowedTo
+    + SMF\User::isBannedEmail
+    + SMF\User::isReservedName
+    + SMF\User::kickIfBanned
+    + SMF\User::kickIfGuest
+    + SMF\User::load
+    + SMF\User::loadModCache
+    + SMF\User::loadOptions
+    + SMF\User::loadPermissions
+    + SMF\User::loadUserData
+    + SMF\User::logBan
+    + SMF\User::logOnline
+    + SMF\User::logSpider
+    + SMF\User::rebuildModCache
+    + SMF\User::reload
+    + SMF\User::setAvatarData
+    + SMF\User::setGroups
+    + SMF\User::setLanguage
+    + SMF\User::setLastVisit
+    + SMF\User::setMe
+    + SMF\User::setModerators
+    + SMF\User::setMyId
+    + SMF\User::setPossiblyRobot
+    + SMF\User::setProperties
+    + SMF\User::updateMemberData
+    + SMF\User::validateSession
+    + SMF\User::validateUsername
+    + SMF\User::verifyPassword
+    + SMF\User::verifyTfa
+  Old regex only:
+    - __construct
+    - __set
+    - allowedTo
+    - anonymize
+    - boardsAllowedTo
+    - boardsCanAccess
+    - buildQueryBoard
+    - chooseMyDataset
+    - delete
+    - find
+    - fixTimezoneSetting
+    - format
+    - getAllowedTo
+    - getGravatarUrl
+    - getTimezone
+    - groupsCanModerate
+    - initializeGuest
+    - integrateVerifyUser
+    - isAllowedTo
+    - isBannedEmail
+    - isReservedName
+    - kickIfBanned
+    - kickIfGuest
+    - load
+    - loadModCache
+    - loadOptions
+    - loadPermissions
+    - loadUserData
+    - logBan
+    - logOnline
+    - logSpider
+    - rebuildModCache
+    - reload
+    - setAvatarData
+    - setGroups
+    - setLanguage
+    - setLastVisit
+    - setMe
+    - setModerators
+    - setMyId
+    - setPossiblyRobot
+    - setProperties
+    - updateMemberData
+    - verifyPassword
+    - verifyTfa
+
+Sources\Utils.php
+  New regex only:
+    + SMF\Utils::serverResponse
+
+Sources\Uuid.php
+  New regex only:
+    + SMF\Uuid::__construct
+    + SMF\Uuid::__toString
+    + SMF\Uuid::adjustTimestamp
+    + SMF\Uuid::compress
+    + SMF\Uuid::create
+    + SMF\Uuid::createFromString
+    + SMF\Uuid::decodeBase32Hex
+    + SMF\Uuid::encodeBase32Hex
+    + SMF\Uuid::expand
+    + SMF\Uuid::getBinary
+    + SMF\Uuid::getGregTimeParts
+    + SMF\Uuid::getHexV1
+    + SMF\Uuid::getHexV2
+    + SMF\Uuid::getHexV3
+    + SMF\Uuid::getHexV4
+    + SMF\Uuid::getHexV5
+    + SMF\Uuid::getHexV6
+    + SMF\Uuid::getHexV7
+    + SMF\Uuid::getNamespace
+    + SMF\Uuid::getShortForm
+    + SMF\Uuid::getVariant
+    + SMF\Uuid::getVersion
+    + SMF\Uuid::setNamespace
+    + SMF\Uuid::setTimestamp
+  Old regex only:
+    - __toString
+    - adjustTimestamp
+    - compress
+    - createFromString
+    - decodeBase32Hex
+    - encodeBase32Hex
+    - expand
+    - getBinary
+    - getGregTimeParts
+    - getHexV1
+    - getHexV2
+    - getHexV3
+    - getHexV4
+    - getHexV5
+    - getHexV6
+    - getHexV7
+    - getNamespace
+    - getShortForm
+    - getVariant
+    - getVersion
+    - setNamespace
+    - setTimestamp
+
+Sources\Verifier.php
+  New regex only:
+    + SMF\Verifier::__construct
+    + SMF\Verifier::addCaptchaJavaScript
+    + SMF\Verifier::create
+    + SMF\Verifier::init
+    + SMF\Verifier::loadQuestionCache
+    + SMF\Verifier::refresh
+    + SMF\Verifier::sanitizeReCaptcha
+    + SMF\Verifier::setQuestions
+    + SMF\Verifier::shouldRefresh
+    + SMF\Verifier::test
+  Old regex only:
+    - __construct
+    - addCaptchaJavaScript
+    - create
+    - init
+    - loadQuestionCache
+    - refresh
+    - sanitizeReCaptcha
+    - setQuestions
+    - shouldRefresh
+    - test
+
+Sources\WebFetch\WebFetchApi.php
+  New regex only:
+    + SMF\WebFetch\WebFetchApi::request
